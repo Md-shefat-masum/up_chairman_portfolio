@@ -8,4 +8,6 @@
  * 6. pagination make dynamic.
  * 7. search dynamic.
  * 8. home page ekta borho search option thakbe.
+  mongodump --uri=mongodb://127.0.0.1:27017 --db=ChairmanDB --out=F:\workspace\solution\projects\chairman_portfolio-main
+
  */
