@@ -1,0 +1,200 @@
+ <!-- footer_area start -->
+ <footer class="footer_area" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container">
+        <div class="footer_area_content">
+
+            <!-- fotter_area_logo_and_menu start -->
+            <div class="fotter_area_logo_and_menu">
+                <div class="logo_area">
+                   <a href="/">
+                     <img src="<%= commonData.setting_titles?.value %>" alt=" Portfolio">
+                    </a>
+                </div>
+                <div class="menu_area">
+                    <ul>
+                        <li>
+                            <a href="/" class="menu_text">হোম</a>
+                        </li>
+                        <li>
+                            <a href="/about" class="menu_text">আমার তথ্যাদি</a>
+                        </li>
+                        <li>
+                            <a href="/posts/contemporary" class="menu_text">সংবাদ</a>
+                        </li>
+                        <li>
+                            <a href="/posts/social-work" class="menu_text">সামাজিক কাজ</a>
+                        </li>
+                        <li>
+                            <a href="/posts/book-review" class="menu_text">বই পর্যালোচনা</a>
+                        </li>
+
+                        <li>
+                            <a href="/photo-gallery" class="menu_text">ফটো গ্যালারি</a>
+                        </li>
+                        <li>
+                            <a href="/video-gallery" class="menu_text">ভিডিও গ্যালারি</a>
+                        </li>
+                        <li>
+                            <a href="/audio-gallery" class="menu_text">অডিও গ্যালারি</a>
+                        </li>
+                        <li>
+                            <a href="/contact" class="menu_text">যোগাযোগ</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <!-- fotter_area_logo_and_menu end -->
+
+            <!-- footer_inner_area start -->
+            <div class="footer_inner_area" data-aos="fade-up" data-aos-duration="900">
+
+                <div class="footer_area_content">
+                    <div class="row">
+
+                        <!-- importent_link_area start -->
+                        <div class="col-md-4 col-lg-4">
+                            <div class="area_title">
+                                <h2 class="area_title_text">গুরুত্বপূর্ণ লিঙ্কসমূহ</h2>
+                            </div>
+                            <div class="importent_link_area">
+                                <ul>
+                                    <% commonData.blog_category?.splice(0,7).map( (category)=>{ %>
+                                        <li>
+                                            <a href="/posts<%= category.url %>" class="menu_text">
+                                                <%= category.title %></a>
+                                        </li>
+                                    <% })%> 
+
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- importent_link_area end -->
+
+                        <!-- contact area start -->
+                        <div class="col-md-4 col-lg-4">
+                            <div class="area_title">
+                                <h2 class="area_title_text">যোগাযোগের ঠিকানা</h2>
+                            </div>
+
+                            <div class="contact_area">
+
+                                <!-- adddress_area start -->
+                                <div class="adddress_area">
+                                    <p class="adddress_text">
+                                        <%= commonData.address?.length && commonData.address[4].value[0] %>
+                                    </p>
+                                </div>
+                                <!-- adddress_area end -->
+
+                                <!-- phone_title_and_number area start -->
+                                <div class="phone_title_and_number title_and_content">
+                                    <div class="phone_title f_title_area">
+                                        <p class="title_text">ফোন :</p>
+                                    </div>
+                                    <div class="phone_number f_content_area">
+                                        <% commonData.contact_numbers?.map( (cn)=>{ %>
+
+                                            
+                                            <a class="content_text f_c_number" href="tel:+88<%= cn.number   %>" class="text phone_number">
+                                                <%= cn.number %>
+                                            </a>
+
+
+                                            <% })%>
+                                        
+                                    </div>
+                                </div>
+                                <!-- phone_title_and_number area end -->
+
+                                <!-- email_title_and_address start -->
+                                <div class="email_title_and_address title_and_content">
+                                    <div class="email_title f_title_area">
+                                        <p class="title_text">ই-মেইল :</p>
+                                    </div>
+                                    <div class="email_address f_content_area">
+                                        <% commonData.emails?.map( (email)=>{ %>
+                                            <div>
+                                            <a class="content_text email_text" href="mailto:<%= email.email   %>"
+                                                class="text phone_number email_text">
+                                                <%= email.email %>
+                                            </a>
+                                        </div>
+                                        <% })%>
+                                        
+                                    </div>
+                                </div>
+                                <!-- email_title_and_address end -->
+                            </div>
+                        </div>
+                        <!-- contact area end -->
+
+                        <!-- map area start -->
+                        <div class="col-md-4 col-lg-4">
+                            <div class="area_title">
+                                <h2 class="area_title_text">ম্যাপ</h2>
+                            </div>
+
+                            <div class="contact_area">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.246369999089!2d90.3589410747526!3d23.809836686493018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c1670cdb1779%3A0x645bbf4f0aeb1d56!2sTech%20Park%20IT!5e0!3m2!1sen!2sbd!4v1694496378390!5m2!1sen!2sbd"
+                                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
+                        <!-- map area end -->
+                    </div>
+                </div>
+
+            </div>
+            <!-- footer_inner_area end -->
+
+            <!-- copy-write_and_social-media_area start -->
+            <div class="copy-write_and_social-media_area">
+               
+
+                <!-- social-media_area start -->
+                <div class="social-media_area">
+                    <ul>
+                        <% commonData.social_links?.map( (slink)=>{ %>
+                            <li>
+                                <a href="<%= slink.url %>" class="social-media_icon">
+                                    <i class="<%= slink.icon %>"></i>
+                                </a>
+                            </li>
+                            
+                        <% })%>
+                       
+                       
+                    </ul>
+                </div>
+                <!-- social-media_area end -->
+                 <!-- copy-write_area start -->
+                 <div class="copy-write_area">
+                    <span class="copy-write_text">
+                        <% const foundUser = commonData.address?.find(user => user.title === 'copy_right'); %>
+                        <%= foundUser?.value %>
+                     © <a href="/home" class="text"> নুর মোহাম্মদ আবু তাহের</a>
+                    </span>
+                </div>
+                <!-- copy-write_area end -->
+
+            </div>
+            <!-- copy-write_and_social-media_area end -->
+
+        </div>
+    </div>
+</footer>
+<!-- footer_area end -->
+
+
+<!-- javaScript area start -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/venobox/1.9.3/venobox.min.js"></script>
+<script>
+    AOS.init();
+</script>
+<!-- javaScript area end -->
+</body>
+
+</html>

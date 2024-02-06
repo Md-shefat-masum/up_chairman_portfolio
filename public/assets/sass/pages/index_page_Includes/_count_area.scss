@@ -1,0 +1,142 @@
+// count_area start
+.count_area {
+    border: $border;
+    // background-repeat: no-repeat;
+    // background-position: center;
+    // background-size: cover;
+    // background-attachment: fixed;
+    margin: 100px 40px;
+    overflow: hidden;
+    position: relative;
+    background-color: $white;
+    padding: 170px 0px;
+    @include xs(){
+        margin: 20px 40px;
+        padding: 20px 0px;
+    }
+
+    .count_area_all {
+        border: $border;
+        .count_area_content {
+            border: $border;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            // position: relative;
+            @include xs(){
+                display: flex;
+                flex-direction: column;
+            }
+
+            &::after {
+                content: "";
+                width: 290px;
+                height: 750px;
+                // background-color: $off_white;
+                background-color: $blue_white;
+                // background-color: $brand_transfarent_color;
+                border-radius: 50%;
+                border: 1px solid $border_black;
+                position: absolute;
+                bottom: -45px;
+                right: 10%;
+                rotate: 40deg;
+            }
+
+            // background-image: url(/assets/images/bg_dote_image/bg_dote.png);
+
+            // count_item start
+            .count_item {
+                // border: 2px solid red;
+                border: $border;
+                display: flex;
+                flex-direction: column;
+                z-index: 1;
+                // border: 2px solid red;
+                border-right: 2px solid rgb(226, 220, 220);
+               
+                @include xs(){
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+                }
+                &::after {
+                    content: "";
+                    width: 1px;
+                    // height: 10px;
+                    background-color: $blue_white;
+                    background-color: $button_black;
+                    // position: absolute;
+                    // top: 0px;
+                    // right: 0px;
+                    margin: 0px 22px;
+                }
+                &:last-child {
+                    &::after {
+                        display: none;
+                    }
+                    border: none;
+                }
+                .count_text_area {
+                    border: $border;
+                    align-items: center;
+                    display: flex;
+                    margin-right: 22px;
+                    @include xs(){
+                        margin: 0;
+                    }
+
+                    .count_text {
+                        border: $border;
+                        font-family: $font_bangla;
+                        font-size: 22px;
+                        // color: $white;
+                        color: $black;
+                        @include xs(){
+                            font-size: 18px;
+                        }
+                    }
+                    .achievement_name{
+                        font-size: 32px;
+                        font-family: $font_bangla;
+                        font-weight: 600;
+                    }
+                }
+                .count_number_area {
+                    border: $border;
+                    align-items: center;
+                    display: flex;
+                    padding: 10px 0px;
+                    @include xs(){
+                        padding: 4px 0px;
+                    }
+                    .count_number {
+                        border: $border;
+                        font-family: $font_bangla;
+                        font-size: 55px;
+                        // color: $white;
+                        color: $brand_color;
+                        font-weight: bold;
+                        @include xs(){
+                            font-size: 20px;
+                        }
+                    }
+                    .achievement_count{
+                        font-size: 23px;
+                    }
+                }
+            }
+            // count_item end
+        }
+        .bg_image {
+            width: 25%;
+            height: 80%;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+    }
+}
+// count_area end

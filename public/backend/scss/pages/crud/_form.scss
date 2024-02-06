@@ -1,0 +1,51 @@
+.form_input_grid,
+.form_input_full {
+    margin-bottom: 30px;
+}
+
+.form_input_grid {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(272px, 1fr));
+}
+
+.form {
+    height: 100%;
+    overflow: auto;
+    padding-right: 10px;
+}
+
+.form_group {
+    &:hover {
+        label {
+            color: #00BCD4;
+        }
+    }
+
+    label {
+        .material-symbols-outlined{
+            font-size: 18px;
+            font-weight: 600;
+        }
+    }
+
+    textarea,
+    select,
+    input {
+        width: 100%;
+    }
+    // 
+    .alert_message {
+        padding-top: 10px;
+
+        p {
+            margin: 0px;
+            color: var(--color_warning);
+            font-size: 15px;
+
+            &::first-letter {
+                text-transform: capitalize;
+            }
+        }
+    }
+}

@@ -1,0 +1,63 @@
+<nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+    <div class="sb-sidenav-menu">
+        <div class="nav">
+            <div class="sb-sidenav-menu-heading">Core</div>
+            <a class="nav-link" href="/dashboard">
+                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                Dashboard
+            </a>
+            <div class="sb-sidenav-menu-heading">Managment</div>
+
+            <div class="single_item">
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" 
+                    data-bs-target="#collapsePagesCategory"
+                    aria-expanded="false" aria-controls="collapsePagesCategory">
+                    <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                    Category
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="collapsePagesCategory" aria-labelledby="headingTwo"
+                    data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="/dashboard/category">All</a>
+                        <a class="nav-link" href="/dashboard/category/create">Create</a>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="single_item">
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
+                    aria-expanded="false" aria-controls="collapsePages">
+                    <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                    Blog
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
+                    data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="/dashboard/blog">All</a>
+                        <a class="nav-link" href="/dashboard/blog/create">Create</a>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="single_item">
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePagesUserManagement"
+                    aria-expanded="false" aria-controls="collapsePagesUserManagement">
+                    <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                    User Managment
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="collapsePagesUserManagement" aria-labelledby="headingTwo"
+                    data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="#">Login</a>
+                        <a class="nav-link" href="#">Register</a>
+                        <a class="nav-link" href="#">Forgot Password</a>
+                    </nav>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</nav>

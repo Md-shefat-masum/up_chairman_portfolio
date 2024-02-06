@@ -1,0 +1,117 @@
+// text_slider_area start
+.text_slider_area {
+    border: $border;
+    background-color: $white;
+    background-color: $button_black;
+    background-color: $brand_color;
+    margin: 80px 40px 80px 40px;
+    padding: 120px 0px;
+    overflow: hidden;
+    position: relative;
+    @include xs(){
+        margin: 40px 40px 40px 40px;
+        padding: 30px 0px;
+    }
+    &::after {
+        content: "";
+        width: 800px;
+        height: 300px;
+        // background-color: $white;
+        // background-color: $blue_white;
+        border: 30px solid $blue_white;
+        // border: 30px solid $black;
+        // border: 100px solid $white;
+        // border: 100px solid $blue_white;
+        // background-color: red;
+        top: 90px;
+        right: -82px;
+        position: absolute;
+        border-radius: 50%;
+        rotate: -45deg;
+        @include xs(){
+            width: 100%;
+            height: 100%;
+            right: 0px;
+            border: 10px solid $blue_white;
+            rotate: -40deg;
+            top: 0px;
+        }
+       
+    }
+    &::before {
+        content: "";
+        background-image: url("../images/bg_dote_image/bg_dote.png");
+        width: 400px;
+        height: 300px;
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        @include xs(){
+            content: "";
+        width: 100%;
+        height: 100%;
+        // background-color: $white;
+        }
+    }
+    .text_slider_area_content {
+        border: $border;
+        background-color: $blue_white;
+        justify-content: center;
+        display: flex;
+        z-index: 1;
+        position: relative;
+        width: 100%;
+        // border: 2px solid red;
+        @include xs(){
+            height: 100px;
+        }
+        .slider_text_area {
+            border: $border;
+            width: 850px;
+            text-align: center;
+            padding: 40px 0px;
+            z-index: 1;
+            min-height: 230px;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            position: relative;
+            @include xs(){
+               min-height: 100px;
+            // border: 2px solid rgb(191, 255, 0);
+            padding: 5px 0px;
+            }
+            .slider_text {
+                border: $border;
+                font-size: 20px;
+                @include xs(){
+                    font-size: 12px;
+                    // border: 2px solid rgb(24, 9, 194);
+                    // margin-top: -120px;
+                }
+            }
+
+            .left_quotetion_area {
+                position: absolute;
+                top: -22px;
+                left: -123px;
+    
+                i {
+                    font-size: 140px;
+                    color: $brand_transfarent_color;
+                }
+            }
+            .right_quotetion_area {
+                position: absolute;
+                bottom: -22px;
+                right: -123px;
+                i {
+                    font-size: 140px;
+                    color: $brand_transfarent_color;
+                }
+            }
+        }
+       
+    }
+}
+// text_slider_area end

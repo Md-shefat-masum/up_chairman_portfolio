@@ -1,0 +1,1119 @@
+<!-- head area include -->
+<%- include('../layouts/frontend/head.ejs',{title:'home'}) %>
+
+    <!-- navbar area include -->
+    <%- include('../layouts/frontend/navbar.ejs' ,{blog_category}) %>
+    <% 
+                                        
+                                        // Function to convert English digits to Bengali (Bangla) digits
+                                        function englishToBanglaDigits(number) {
+                                            const banglaDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+                                            return number.toString().replace(/\d/g, digit => banglaDigits[digit]);
+                                        }
+
+                                        // Function to convert English month names to Bengali (Bangla) month names
+                                        function getBanglaMonthName(month) {
+                                        const banglaMonths = [
+                                            'জানুয়ারি', 'ফেব্রুয়ারি', 'মার্চ', 'এপ্রিল',
+                                            'মে', 'জুন', 'জুলাই', 'আগস্ট',
+                                            'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর'
+                                        ];
+                                        return banglaMonths[month];
+                                        }
+
+                                        // Function to convert English date string to Bangla (Bengali) date format
+                                        function convertToBanglaDate(englishDateString) {
+                                            const englishDate = new Date(englishDateString);
+                                            const banglaDay = englishToBanglaDigits(englishDate.getDate());
+                                            const banglaMonth = getBanglaMonthName(englishDate.getMonth());
+                                            const banglaYear = englishToBanglaDigits(englishDate.getFullYear());
+                                        
+                                            const banglaDate = `${banglaDay} ${banglaMonth}, ${banglaYear}`;
+                                            const aa = `${banglaDay}`;
+                                            const bb = `${banglaMonth}`;
+                                            const cc = `${banglaYear}`;
+                                            return [banglaDate, aa, bb, cc];
+                                        }
+
+                                        // English date string
+                                        // const englishDateString = post_details.published_date.toISOString().substring(0, 10);
+
+                                        // Convert English date string to Bangla date format
+                                        // const banglaDate = convertToBanglaDate(englishDateString);
+                                        
+                                        %>
+
+        <!-- banner_area start -->
+        <div class="banner_area" style=" background-image: url('<%= banner[0]?.banner_photo %>');">
+            <div class="banner_area_bg_color">
+
+                <div class="container">
+
+                    <div class="banner_area_content">
+                        <!-- left-area start -->
+                        <div class="left-area_content" data-aos="fade-right" data-aos-duration="1000">
+                            <div class="left-area">
+                                <div class="left_area_content">
+                                    <p class="profation_name">
+                                        <%= banner[0]?.title %>
+                                    </p>
+                                    <h2 class="name_text">
+                                        <%= banner[0]?.name %>
+                                    </h2>
+                                    <p class="description_text">
+                                        <%= banner[0]?.description %>
+                                    </p>
+                                    <!-- <p><%= photo_gallery_category[0]?.title %></p> -->
+                                    <!-- button_area start-->
+                                    <div class="button_area">
+                                        <a href="/about" class="button_text_area">
+                                            <span class="button_text">
+                                                <%= banner[0]?.button_text %>
+                                                    <span class="dash_icon"></span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <!-- button_area end-->
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- left-area end -->
+
+                        <!-- right-area start -->
+                        <div class="right-area" data-aos="fade-left" data-aos-duration="1000">
+                            <div class="image_area">
+                                <img src="<%= banner[0]?.profile_photo %>" alt="image">
+                            </div>
+                        </div>
+                        <!-- right-area end -->
+
+                    </div>
+
+                    <!-- small_count-area start -->
+                    <div class="small_count_area">
+                        <div class="small_count-area_content">
+
+                            <!-- count_item start -->
+                            <div class="count_item">
+                                <div class="count_number_area">
+                                    <h2 class="number_text">
+                                        <%= settingTitle1?.value %>
+                                      
+                                    </h2>
+                                </div>
+                                <div class="count_text_area">
+                                    <p class="count_text">
+                                        <%= settingTitle1.title %>
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- count_item end -->
+                            <!-- count_item start -->
+                            <div class="count_item">
+                                <div class="count_number_area">
+                                    <h2 class="number_text">
+                                        <%= settingTitle2?.value %>
+                                    </h2>
+                                </div>
+                                <div class="count_text_area">
+                                    <p class="count_text">
+                                        <%= settingTitle2.title %>
+                                        
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- count_item end -->
+                            <!-- count_item start -->
+                            <div class="count_item">
+                                <div class="count_number_area">
+                                    <h2 class="number_text">
+                                        
+                                        <%= settingTitle3?.value %>
+                                    </h2>
+                                </div>
+                                <div class="count_text_area">
+                                    <p class="count_text">
+                                        <%= settingTitle3.title %>
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- count_item end -->
+                            <!-- count_item start -->
+                            <div class="count_item">
+                                <div class="count_number_area">
+                                    <h2 class="number_text">
+                                        <%= settingTitle4?.value %>
+                                    </h2>
+                                </div>
+                                <div class="count_text_area">
+                                    <p class="count_text">
+                                        <%= settingTitle4.title %>
+                                      
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- count_item end -->
+
+                        </div>
+                    </div>
+                    <!-- small_count-area end -->
+                </div>
+            </div>
+        </div>
+        <!-- banner_area end -->
+
+        <!-- owner intro start -->
+        <div class="video_gallery_are">
+            <div class="container">
+                <div class="video_gallery_are_content">
+
+                    <!-- content_title start -->
+                    <div class="content_title_and_description" data-aos="fade-right" data-aos-duration="1000">
+                        <h2 class="title_text mb-3">চেয়ারম্যানের ভাষণ </h2>
+                        <!-- <p class="description_text">নাজাত লাভ, জান্নাত অর্জন, খোদার সন্তুষ্টি এবং ধনসম্পদেও বরকতের
+                            মাধ্যম।
+                            সততা মানব চরিত্রের শ্রেষ্ঠ গুণ। নাজাত লাভ, জান্নাত অর্জন, খোদার সন্তুষ্টি এবং ধনসম্পদেও
+                            বরকতের
+                            মাধ্যম। </p> -->
+                    </div>
+                    <!-- content_title end -->
+
+                    <!-- all_blog_card start -->
+                    <div class="all_video_card">
+                        <% ownerIntros.slice(-1).map( (intro,index)=>{ %>
+                            <!--card start -->
+                            <a href="<%= intro.url %>" data-gall="myGallery3" data-autoplay="true" data-vbtype="video"
+                                class="venobox video_car video_card2" data-aos="fade-up" data-aos-duration="300">
+                                <img src="<%= intro.photo %>" alt="<%= intro.photo_alt %>">
+                                <!-- overlay-area start -->
+                                <div class="overlay-area">
+                                    <div class="overlay-area_content">
+                                        <div class="image_title">
+                                            <h2 class="title_text">
+                                                <div class="video_icon">
+                                                    <i class="fa-solid fa-play"></i>
+                                                </div>
+                                                <%= intro.title %>
+                                            </h2>
+                                        </div>
+                                        <div class="video_icon_area">
+                                            <div class="video_icon">
+                                                <!-- <i class="fa-solid fa-play"></i> -->
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
+
+                                </div>
+
+                                <!-- overlay-area end -->
+                            </a>
+                            <!--card end -->
+                            <% })%>
+                    </div>
+                    <!-- all_blog_card end -->
+
+                    <!-- button_area start-->
+                    <!-- <div class="button_area" style="text-align: center;" data-aos="fade-up" data-aos-duration="1000">
+                        <a href="/video-gallery" class="button_text_area">
+                            <span class="button_text">
+                                <%= banner[0]?.button_text %>
+                                    <span class="dash_icon"></span>
+                            </span>
+                        </a>
+                    </div> -->
+                    <!-- button_area end-->
+
+                </div>
+            </div>
+        </div>
+        <!-- owner intro end -->
+         <!-- social_work_area start -->
+         <div class="social_work_area" style=" margin-top: 40px;">
+            <div class="container">
+                <div class="social_work_area_content">
+
+                    <!-- content_title start -->
+                    <div class="content_title_and_description" data-aos="fade-right" data-aos-duration="1000">
+                        <h2 class="title_text">
+                            সম্প্রতি পোস্ট
+                        </h2>
+                        <p class="description_text">
+                            <%= social_work.short_description %>
+                        </p>
+                    </div>
+                    <!-- content_title end -->
+
+                    <div class="social_work_all_item">
+                        <ul>
+                            <% all_blogs.slice(0,4).map( (sw)=>{ %>
+                                <li class="item_area">
+                                    <a href="/post/<%= sw._id %>" class="social_work_image_card" data-aos="fade-up"
+                                        data-aos-duration="300">
+                                        <img src="<%= sw.photo %>" alt="<%= sw.photo_alt %>">
+                                        <!-- overlay-area start -->
+                                        <div class="overlay-area">
+                                            <div class="overlay-area_content">
+
+                                                <div class="image_title">
+                                                    <h2 class="title_text"><%- sw.title %></h2>
+                                                    <div class="image_description">
+                                                        <%- sw.short_description %>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- overlay-area end -->
+                                    </a>
+                                </li>
+                                <% })%>
+
+                        </ul>
+                    </div>
+
+                    <!-- button_area start-->
+                   <!--  <div class="button_area" style="text-align: center;" data-aos="fade-up" data-aos-duration="1000">
+                        <a href="/posts/social-work" class="button_text_area">
+                            <span class="button_text">
+                                আরোও দেখুন
+                                <span class="dash_icon"></span>
+                            </span>
+                        </a>
+                    </div> -->
+                    <!-- button_area end-->
+
+                </div>
+            </div>
+        </div>
+        <!-- social_work_area end -->
+
+        <!-- contemporary-area start -->
+        <div class="contemporary-area news-area">
+            <div class="dote_bg_image" style="background-image: url(/assets/images/bg_dote_image/bg_dote.png);">
+            </div>
+            <div class="container">
+
+                <div class="news-area_content">
+
+                    <!-- content_title start -->
+                    <div class="content_title_and_description" data-aos="fade-right" data-aos-duration="1000">
+                        <h2 class="title_text">
+                            <%= contemp.title %>
+                        </h2>
+                        <p class="description_text">
+                            <%= contemp.short_description %>
+                        </p>
+                    </div>
+                    <!-- content_title end -->
+
+                    <!-- news_item-all start -->
+                    <div class="news_item-all" data-aos="fade-up" data-aos-duration="1000">
+                        <!-- top_item_area start -->
+                        <div class="top_item_area">
+                            <!-- left_area start -->
+                            <div class="left_area">
+                                <% contems2.splice(0,1).map( (cm)=>{ %>
+                                    <a href="/post/<%= cm._id %>" class="item">
+                                        <img src="<%= cm.photo %>" alt="News">
+
+                                        <!-- layout_area start -->
+                                        <div class="layout_area">
+                                            <div class="item_date_and_title_area">
+
+                                                <div class="date_area">
+                                                    <p class="date_text">
+                                                        <%= convertToBanglaDate(cm.published_date.toISOString().substring(0, 10))[0] %>
+                                                    </p>
+                                                </div>
+
+                                                <div class="title_area">
+                                                    <p class="title_text">
+                                                        <%= cm.title %>
+                                                    </p>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <!-- layout_area end-->
+                                    </a>
+                                    <% })%>
+                            </div>
+                            <!-- left_area end -->
+                            <!-- right_area start -->
+                            <div class="right_area">
+                                <% contems2.splice(1,2).map( (cm)=>{ %>
+                                    <a href="/post/<%= cm._id %>" class="item">
+                                        <img src="<%= cm.photo %>" alt="News">
+
+                                        <!-- layout_area start -->
+                                        <div class="layout_area">
+                                            <div class="item_date_and_title_area">
+
+                                                <div class="date_area">
+                                                    <p class="date_text">
+                                                        <%= convertToBanglaDate(cm.published_date.toISOString().substring(0, 10))[0] %>
+                                                    </p>
+                                                </div>
+
+                                                <div class="title_area">
+                                                    <p class="title_text">
+                                                        <%= cm.title %>
+                                                    </p>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <!-- layout_area end-->
+                                    </a>
+
+                                    <% })%>
+                            </div>
+                            <!-- right_area end -->
+                        </div>
+                        <!-- top_item_area end -->
+
+                        <!-- bottom_item_area start -->
+                        <div class="bottom_item_area">
+                            <% contems2.splice(0,3).map( (cm)=>{ %>
+                                <a href="/post/<%= cm._id %>" class="item">
+                                    <img src="<%= cm.photo %>" alt="News">
+                                    <!-- layout_area start -->
+                                    <div class="layout_area">
+                                        <div class="item_date_and_title_area">
+
+                                            <div class="date_area">
+                                                <p class="date_text">
+                                                    <%= convertToBanglaDate(cm.published_date.toISOString().substring(0, 10))[0] %>
+                                                </p>
+                                            </div>
+
+                                            <div class="title_area">
+                                                <p class="title_text">
+                                                    <%= cm.title %>
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!-- layout_area end-->
+                                </a>
+
+                                <% })%>
+                        </div>
+                        <!-- bottom_item_area end -->
+                    </div>
+                    <!-- news_item-all end -->
+
+                    <!-- button_area start-->
+                    <div class="button_area" style="text-align: center;" data-aos="fade-up" data-aos-duration="1000">
+                        <a href="/posts/news" class="button_text_area">
+                            <span class="button_text">
+                                <%= banner[0]?.button_text %>
+                                    <span class="dash_icon"></span>
+                            </span>
+                        </a>
+                    </div>
+                    <!-- button_area end-->
+
+                </div>
+            </div>
+        </div>
+        <!--contemporary-area end -->
+
+        <!-- social_work_area start -->
+        <div class="social_work_area" style=" margin-top: 40px;">
+            <div class="container">
+                <div class="social_work_area_content">
+
+                    <!-- content_title start -->
+                    <div class="content_title_and_description" data-aos="fade-right" data-aos-duration="1000">
+                        <h2 class="title_text">
+                            <%= social_work.title%>
+                        </h2>
+                        <p class="description_text">
+                            <%= social_work.short_description %>
+                        </p>
+                    </div>
+                    <!-- content_title end -->
+
+                    <div class="social_work_all_item">
+                        <ul>
+                            <% social_works.slice(0,4).map( (sw)=>{ %>
+                                <li class="item_area">
+                                    <a href="/post/<%= sw._id %>" class="social_work_image_card" data-aos="fade-up"
+                                        data-aos-duration="300">
+                                        <img src="<%= sw.photo %>" alt="<%= sw.photo_alt %>">
+                                        <!-- overlay-area start -->
+                                        <div class="overlay-area">
+                                            <div class="overlay-area_content">
+
+                                                <div class="image_title">
+                                                    <h2 class="title_text"><%- sw.title %></h2>
+                                                    <div class="image_description">
+                                                        <%- sw.short_description %>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- overlay-area end -->
+                                    </a>
+                                </li>
+                                <% })%>
+
+                        </ul>
+                    </div>
+
+                    <!-- button_area start-->
+                    <div class="button_area" style="text-align: center;" data-aos="fade-up" data-aos-duration="1000">
+                        <a href="/posts/social-work" class="button_text_area">
+                            <span class="button_text">
+                                আরোও দেখুন
+                                <span class="dash_icon"></span>
+                            </span>
+                        </a>
+                    </div>
+                    <!-- button_area end-->
+
+                </div>
+            </div>
+        </div>
+        <!-- social_work_area end -->
+
+
+        <!-- count_area start -->
+        <div class="count_area" data-aos="fade-up" data-aos-duration="1000">
+            <div class="count_area_all">
+                <div class="container">
+                    <div class="count_area_content">
+                        <% user_achievement.map( (achievement)=>{ %>
+                        <!-- count_item start -->
+                        <div class="count_item">
+                            <div class="count_text_area">
+                                <h2 class="count_text achievement_name ">
+                                    
+                                    <%= achievement.title %>
+                                </h2>
+                            </div>
+                            <div class="count_number_area">
+                                <h4 class="count_number achievement_count">
+                                    <%= convertToBanglaDate(achievement.date.toISOString().substring(0, 10))[0] %>
+                                </h4>
+                            </div>
+                        </div>
+                        <!-- count_item end -->
+                        <!-- count_item start -->
+                        <!-- <div class="count_item">
+                            <div class="count_text_area">
+                                <h2 class="count_text">
+                                    <%= settingTitle2.title %>+
+                                </h2>
+                            </div>
+                            <div class="count_number_area">
+                                <h2 class="count_number">
+                                   
+                                    <%= settingTitle2?.value %>
+                                </h2>
+                            </div>
+                        </div> -->
+                        <!-- count_item end -->
+                        <!-- count_item start -->
+                        <!-- <div class="count_item">
+                            <div class="count_text_area">
+                                <h2 class="count_text">
+                                    <%= settingTitle3.title %>
+                                </h2>
+                            </div>
+                            <div class="count_number_area">
+                                <h2 class="count_number">
+                                    
+                                    <%= settingTitle3?.value %>
+                                </h2>
+                            </div>
+                        </div> -->
+                        <!-- count_item end -->
+                        <!-- count_item start -->
+                        <!-- <div class="count_item">
+                            <div class="count_text_area">
+                                <h2 class="count_text">
+                                    <%= settingTitle4.title %>
+                                </h2>
+                            </div>
+                            <div class="count_number_area">
+                                <h2 class="count_number">
+                                  
+                                    <%= settingTitle4?.value %>
+                                </h2>
+                            </div>
+                        </div> -->
+                        <!-- count_item end -->
+
+                        <% })%>
+
+                    </div>
+                </div>
+                <div class="bg_image" style="  background-image: url(/assets/images/bg_dote_image/bg_dote.png);"></div>
+            </div>
+
+        </div>
+        <!-- count_area end -->
+
+        <!-- book_review_area start -->
+        <div class="book_review_area">
+            <div class="container">
+                <div class="book_review_area_content">
+
+                    <!-- content_title start -->
+                    <div class="content_title_and_description" data-aos="fade-right" data-aos-duration="1000">
+                        <h2 class="title_text">
+                            <%= book_review.title %>
+                        </h2>
+                        <p class="description_text">
+                            <%= book_review.short_description %>
+                        </p>
+                    </div>
+                    <!-- content_title end -->
+
+                    <!-- book_card_area_all start -->
+                    <div class="book_card_area_all">
+                        <% book_reviews.slice(0,4).map( (br)=>{ %>
+                            <!-- book_card start -->
+                            <div class="book_card">
+                                <div href="/post/<%= br._id %>" class="book_card_item" data-aos="fade-up"
+                                    data-aos-duration="300">
+                                    <div class="image_area">
+                                        <a href="/post/<%= br._id %>">
+
+                                            <img src="<%= br.photo %>" alt="<%= br.photo_alt %>">
+                                        </a>
+                                        <!-- <div class="bg_image" style="">
+
+                                </div> -->
+                                    </div>
+                                    <div class="image_title_and_description_area">
+
+
+                                        <h2 class="title_text">
+                                            <a href="/post/<%= br._id %>">
+
+                                                <%= br.title %>
+                                            </a>
+                                        </h2>
+
+                                        <a href="/post/<%= br._id %>">
+                                            <p class="description_text">
+                                                <%= br.short_description.replace(/(<([^>]+)>)/ig,'') %>
+                                            </p>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- book_card end -->
+                            <% })%>
+                    </div>
+                    <!-- book_card_area_all end -->
+
+                    <!-- button_area start-->
+                    <div class="button_area" style="text-align: center;" data-aos="fade-up" data-aos-duration="1000">
+                        <a href="/posts/book-review" class="button_text_area">
+                            <span class="button_text">
+                                <%= banner[0]?.button_text %>
+                                    <span class="dash_icon"></span>
+                            </span>
+                        </a>
+                    </div>
+                    <!-- button_area end-->
+
+                </div>
+            </div>
+        </div>
+        <!-- book_review_area end -->
+
+        <!-- union_porishad_area start -->
+        <div class="union_porishad_area">
+            <div class="container">
+                <div class="union_porishad_area_content">
+
+                    <!-- content_title start -->
+                    <div class="content_title_and_description" data-aos="fade-right" data-aos-duration="1000">
+                        <h2 class="title_text">
+                            <%= commonData?.blog?.title %>
+                        </h2>
+                        <p class="description_text">
+                            <%= commonData?.blog?.short_description %>
+                        </p>
+                    </div>
+                    <!-- content_title end -->
+
+                    <!-- box_content_area start -->
+                    <div class="box_content_area">
+                        <div class="box_content">
+
+                            <ul>
+                                <li>
+                                    <a href="#" class="box" data-aos="fade-up" data-aos-duration="300">
+                                        <div class="box_image_area">
+                                            <img src="./assets/images/news_image/img4.webp" alt="image">
+                                        </div>
+                                        <div class="box_text_area">
+                                            <h2 class="number_text">
+                                                
+                                                <%= settingTitle1?.value %>+
+                                            </h2>
+                                            <p class="title_text">
+                                                <%= settingTitle1.title %>
+                                            </p>
+                                        </div>
+
+                                        <span class="bg_number">400</span>
+                                        <span class="bg_circle"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="box" data-aos="fade-up" data-aos-duration="600">
+                                        <div class="box_image_area">
+                                            <img src="./assets/images/news_image/img4.webp" alt="image">
+                                        </div>
+                                        <div class="box_text_area">
+                                            <h2 class="number_text">
+                                                <%= settingTitle2?.value %>+
+                                            </h2>
+                                            <p class="title_text">
+                                               
+                                                <%= settingTitle2.title %>
+                                            </p>
+                                        </div>
+
+                                        <span class="bg_number">934</span>
+                                        <span class="bg_circle"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="box" data-aos="fade-up" data-aos-duration="900">
+                                        <div class="box_image_area">
+                                            <img src="./assets/images/news_image/img4.webp" alt="image">
+                                        </div>
+                                        <div class="box_text_area">
+                                            <h2 class="number_text">
+                                                <%= settingTitle3?.value %>
+                                            </h2>
+                                            <p class="title_text">
+                                              
+                                                <%= settingTitle3.title %>
+                                            </p>
+                                        </div>
+
+                                        <span class="bg_number">369</span>
+                                        <span class="bg_circle"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="box" data-aos="fade-up" data-aos-duration="1200">
+                                        <div class="box_image_area">
+                                            <img src="./assets/images/news_image/img4.webp" alt="image">
+                                        </div>
+                                        <div class="box_text_area">
+                                            <h2 class="number_text">
+                                                <%= settingTitle4?.value %>
+                                            </h2>
+                                            <p class="title_text">
+                                               
+                                                <%= settingTitle4.title %>
+                                            </p>
+                                        </div>
+
+                                        <span class="bg_number">769</span>
+                                        <span class="bg_circle"></span>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    <!-- box_content_area end -->
+
+                    <!-- union_porishad_left_and_right_area start -->
+                    <div class="union_porishad_left_and_right_area" style="margin-top: 0px;">
+
+                        <!-- left_area start -->
+                        <div class="left_area" data-aos="fade-right" data-aos-duration="1000">
+                            <div class="union_porishad_text_and_link_area">
+                                <div class="description_area">
+                                    <p class="description_text">
+                                        
+                                        <%= commonData?.blog?.long_description %>
+                                    </p>
+                                </div>
+                                <div class="link_area">
+                                    <a href="/posts/union-porishod" class="link_text">
+                                        <%= commonData?.blog?.title %>
+                                            <span class="link_area_icon">
+                                                <i class="fa-solid fa-right-long"></i>
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+
+
+                            <!-- image_area start -->
+                            <div class="image_area">
+
+                                <div class="all_image_area">
+                                    <ul>
+                                        <% commonData.blogs.map( (bi)=>{ %>
+                                            <li>
+                                                <div class="card_area ">
+                                                    <a href="/post/<%= bi._id %>" class="image">
+                                                        <img src="<%= bi.photo %>" alt="<%= bi.photo_alt %>">
+
+
+                                                    </a>
+                                                </div>
+                                            </li>
+
+                                            <% })%>
+                                    </ul>
+                                </div>
+
+                                <!-- button_area start-->
+                                <div class="button_area" style="text-align: center; margin-top: 20px;">
+                                    <a href="/posts/union-porishod" class="button_text_area">
+                                        <span class="button_text" style="padding: 9px 80px 9px 10px;">
+                                            আরোও দেখুন
+                                            <span class="dash_icon"></span>
+                                        </span>
+                                    </a>
+                                </div>
+                                <!-- button_area end-->
+                            </div>
+                            <!-- image_area end -->
+                        </div>
+                        <!-- left_area end -->
+
+                        <!-- right_area start -->
+                        <div class="right_area" data-aos="fade-left" data-aos-duration="1000">
+                            <div class="notice_and_image_area">
+                                <!-- notice_area start -->
+                                <div class="notice_area">
+                                    <div class="notice_title_area">
+                                        <h2 class="notice_text">নোটিশ</h2>
+                                    </div>
+
+                                    <!-- all_notice_item start -->
+                                    <div class="all_notice_item">
+                                        <% notices.slice(0,3).map( (notice)=>{ %>
+                                            <!-- notice_item start -->
+                                            <div class="notice_item">
+                                                <div class="notice_date_area">
+                                                    <div class="date_month">
+                                                        <p class="date_text date_month_text">
+                                                            <%= convertToBanglaDate(notice.date.toISOString().substring(0, 10))[1] %>
+                                                        </p>
+                                                        <p class="month_text date_month_text">
+                                                            <%= convertToBanglaDate(notice.date.toISOString().substring(0, 10))[2] %>
+                                                        </p>
+                                                    </div>
+                                                    <div class="year">
+                                                        <p class="year_text">
+                                                            <%= convertToBanglaDate(notice.date.toISOString().substring(0, 10))[3] %>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="notice_text_area">
+                                                    <h6 class="fw-bold single_notice bn"><%= notice.title %></h6>
+                                                    <p class="notice_text bn">
+                                                        <%- notice.description.slice(0,150) %>
+                                                            <span class="read_more_button_area"> <a href="/notice/<%= notice._id %>"
+                                                                    class="button_text bn">বিস্তারিত পড়ুন . . .
+                                                                </a> </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <!-- notice_item end -->
+                                            <% })%>
+
+                                    </div>
+                                    <!-- all_notice_item end -->
+
+
+                                    <!-- button_area start-->
+                                    <div class="button_area" style="text-align: center; z-index: 1;">
+                                        <a href="/notice/all" class="button_text_area">
+                                            <span class="button_text">
+                                                আরোও দেখুন
+                                                <span class="dash_icon"></span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <!-- button_area end-->
+
+                                </div>
+                                <!-- notice_area end -->
+
+
+                            </div>
+                        </div>
+                        <!-- right_area end -->
+                    </div>
+                    <!-- union_porishad_left_and_right_area end -->
+
+
+                </div>
+            </div>
+        </div>
+        <!-- union_porishad_area end -->
+
+        <!-- user review area start -->
+        <div class="user_review_area">
+            <div class="container">
+                <div class="heading_part">
+                    <h2 class="user_review_title">জনগনের কথা</h2>
+                    <p class="bn">সব চাই‌তে সোজা কারণ হ‌লো, আ‌মি য‌দি অ‌ন্যের মতাদ‌র্শের প্র‌তি শ্রদ্ধাশীল না থা‌কি, তাহ‌লে সেও আসার মতাদ‌র্শের প্র‌তি শ্রদ্ধাশীল থাক‌বে না। ফলস্বরূপ পরস্প‌রের ম‌ধ্যে তিক্ততা, বি‌দ্বেষ বৃ‌দ্ধি পা‌বে। বাড়‌বে হানাহা‌নি। আর উ‌ল্টো‌দি‌কে শ্রদ্ধা কর‌লে পরস্প‌রের ম‌ধ্যে সহম‌র্মিতা বাড়‌বে, বাস‌যোগ্য হ‌বে পৃ‌থিবী।</p>
+                </div>
+                <div class="description_part">
+                    <div class="reviews">
+                        <% userReview.slice(-4).map( (review)=>{ %>
+                        <div class="review">
+                            <div class="reviewer_comment">
+                                <div class="review_star">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <div class="comment">
+                                    <%= review.description %>
+                                </div>
+                            </div>
+                            <div class="reviewer_details">
+                                <div class="user_img">
+                                    <!-- <img src="/uploads/posts/bnu.png" alt=""> -->
+                                    <% if (review?.photo) { %>
+                                        <!-- If you have a photo URL, display the image -->
+                                        <img src="<%= review.photo %>" alt="User Photo">
+                                      <% } else { %>
+                                        <!-- If no photo URL, display a Font Awesome icon -->
+                                        <i class="fa-solid fa-user"></i>
+                                      <% } %>
+                                </div>
+                                <div class="user_name">
+                                    <h4 class="title"><%= review.title %></h4>
+                                    <p class="sub_title"><%= review.sub_title %></p>
+                                </div>
+                            </div>
+                        </div>
+                        <% })%>
+                    </div>
+                </div>
+                <div class="review_footer_part">
+                    <div>
+                        <!-- <div class="button_area" style="text-align: center;" data-aos="fade-up" data-aos-duration="1000">
+                            <a href="/#" class="button_text_area">
+                                <span class="button_text">
+                                    আরো দেখুন
+                                        <span class="dash_icon"></span>
+                                </span>
+                            </a>
+                        </div> -->
+                    </div>
+                    <div>
+                        <div class="button_area" style="text-align: center;" data-aos="fade-up" data-aos-duration="1000">
+                            <a href="/user-review" class="button_text_area">
+                                <span class="button_text">
+                                    আপনার কথা লিখুন
+                                        <span class="dash_icon"></span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- user review area end -->
+
+        <!-- text_slider_area start -->
+        <div class="text_slider_area" data-aos="fade-up" data-aos-duration="1000">
+            <div class="container">
+                <div id="owl-demo" class="owl-carousel">
+                    <% speakerQuotes.map( (quote)=>{ %>
+                    <div class="text_slider_area_content item">
+                        <div class="slider_text_area  ">
+                                <p class="slider_text bn">
+                                    <%= quote.description %>
+        
+                                </p>
+        
+                                <div class="left_quotetion_area">
+                                    <i class="fa-solid fa-quote-left"></i>
+                                </div>
+                                <div class="right_quotetion_area">
+                                    <i class="fa-solid fa-quote-right"></i>
+                                </div>
+                            
+                           
+                        </div>
+                       
+                    </div>
+                    
+                    <% })%>
+                </div>
+                
+            </div>
+        </div>
+        <!-- text_slider_area end -->
+
+        
+
+        <!-- photo_gallery_are start -->
+        <div class="photo_gallery_are">
+            <div class="container">
+                <div class="photo_gallery_are_content">
+
+                    <!-- content_title start -->
+                    <div class="content_title_and_description" data-aos="fade-right" data-aos-duration="1000">
+                        <h2 class="title_text"><%= PhotoGallery.title %></h2>
+                        <p class="description_text"><%= PhotoGallery.description %></p>
+                    </div>
+                    <!-- content_title end -->
+
+                    <!-- all_blog_card start -->
+                    <div class="all_photo_card">
+                        <% photo_gallery_category.splice(0,4).map( (photo)=>{ %>
+
+
+
+                            <a class="photo_card venobox" data-gall="myGallery" href="<%= photo.photo %>">
+                                <img src="<%= photo.photo %>" alt="Thumbnail Image" />
+                                <!-- overlay-area start -->
+                                <div class="overlay-area">
+                                    <div class="overlay-area_content">
+                                        <div class="image_title">
+                                            <h2 class="title_text">
+                                                <%= photo.title %>
+                                            </h2>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- overlay-area end -->
+                            </a>
+
+                            <% })%>
+
+                    </div>
+                    <!-- all_blog_card end -->
+
+                    <!-- button_area start-->
+                    <div class="button_area" style="text-align: center;" data-aos="fade-up" data-aos-duration="1000">
+                        <a href="/photo-gallery" class="button_text_area">
+                            <span class="button_text">
+                                <%= banner[0]?.button_text %>
+                                    <span class="dash_icon"></span>
+                            </span>
+                        </a>
+                    </div>
+                    <!-- button_area end-->
+
+                </div>
+            </div>
+        </div>
+        <!-- photo_gallery_are end -->
+
+        <!-- video_gallery_are start -->
+       <div class="video_gallery_are">
+            <div class="container">
+                <div class="video_gallery_are_content">
+
+                    <!-- content_title start -->
+                    <div class="content_title_and_description" data-aos="fade-right" data-aos-duration="1000">
+                        <h2 class="title_text"><%= VideoGallery.title %></h2>
+                        <p class="description_text"><%= VideoGallery.description %></p>
+                    </div>
+                    <!-- content_title end -->
+
+                    <!-- all_blog_card start -->
+                    <div class="all_video_card">
+                        <% video_gallery_video.splice(0,4).map( (video,index)=>{ %>
+                            <!--card start -->
+                            <a href="<%= video.url %>" data-gall="myGallery2" data-autoplay="true" data-vbtype="video"
+                                class="venobox video_card" data-aos="fade-up" data-aos-duration="300">
+                                <img src="<%= video.photo %>" alt="<%= video.photo_alt %>">
+                                <!-- overlay-area start -->
+                                <div class="overlay-area">
+                                    <div class="overlay-area_content">
+                                        <div class="video_icon_area">
+                                            <div class="video_icon">
+                                                <i class="fa-solid fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="image_title">
+                                            <h2 class="title_text">
+                                                <%= video.title %>
+                                            </h2>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- overlay-area end -->
+                            </a>
+                            <!--card end -->
+                            <% })%>
+                    </div>
+                    <!-- all_blog_card end -->
+
+                    <!-- button_area start-->
+                    <div class="button_area" style="text-align: center;" data-aos="fade-up" data-aos-duration="1000">
+                        <a href="/video-gallery" class="button_text_area">
+                            <span class="button_text">
+                                <%= banner[0]?.button_text %>
+                                    <span class="dash_icon"></span>
+                            </span>
+                        </a>
+                    </div>
+                    <!-- button_area end-->
+
+                </div>
+            </div>
+        </div>
+        <!-- video_gallery_are end -->
+        <!-- <script src="jquery.min.js"></script> -->
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="/assets/assets/owlcarousel/owl.carousel.min.js"></script>
+        <script>
+            $(document).ready(function(){
+              $('.owl-carousel').owlCarousel({
+                items: 1, // Adjust the number of items to display
+                loop: true, // Enable loop
+                autoplay: true,
+                margin: 10,
+                autoplayTimeout:4000,
+                autoplayHoverPause:true // Adjust margin between items
+                // Add other Owl Carousel options as needed
+              });
+            });
+          </script>
+
+
+        <script>
+            $(document).ready(function () {
+                $('.venobox').venobox();
+            });
+        </script>
+
+        <!-- scroll_button_area start -->
+       
+            <a href="#scroll_top" class="scroll-button">
+                <span class="icon">
+                    <i class="fa-solid fa-angle-up"></i>
+                </span>
+            </a>
+   
+        <!-- scroll_button_area end -->
+
+        <%- include('../layouts/frontend/footer.ejs') %>

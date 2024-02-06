@@ -1,0 +1,201 @@
+<!-- head area include -->
+<%- include('../layouts/frontend/head.ejs',{title:'contact'}) %>
+
+    <!-- navbar area include -->
+    <%- include('../layouts/frontend/navbar.ejs') %>
+
+        <div class="contact_page">
+            <div class="container">
+                <div class="contact_page_content">
+
+                    <!-- content_title start -->
+                    <div class="content_title_and_description" data-aos="fade-right" data-aos-duration="1000">
+                        <h2 class="title_text">যোগাযোগ</h2>
+                        <p class="description_text">নাজাত লাভ, জান্নাত অর্জন, খোদার সন্তুষ্টি এবং ধনসম্পদেও
+                            বরকতের
+                            মাধ্যম।
+                            সততা মানব চরিত্রের শ্রেষ্ঠ গুণ। </p>
+                    </div>
+                    <!-- content_title end -->
+
+                    <!-- content_left_and_right_area start -->
+                    <div class="content_left_and_right_area">
+                        <div class="row">
+                            <!-- contact_area_left start -->
+                            <div class="col-md-6">
+                                <div class="contact_area_left" data-aos="fade-right" data-aos-duration="1000">
+
+                                    <!-- address_area start -->
+                                    <div class="address_area content_area">
+                                        <div class="content_area_icon_and_title">
+                                            <div class="content_area_icon">
+                                                <i class="fa-solid fa-location-dot"></i>
+                                            </div>
+                                            <div class="content_area_title">
+                                                <h3 class="text">ঠিকানা</h3>
+                                            </div>
+                                        </div>
+
+                                        <div class="content_text">
+                                            <p class="text">
+                                                <%= address[4].value[0] %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <!-- address_area end-->
+
+                                    <!-- contact_area start -->
+                                    <div class="contact_area content_area">
+                                        <div class="content_area_icon_and_title">
+                                            <div class="content_area_icon">
+                                                <i class="fa-solid fa-phone"></i>
+                                            </div>
+                                            <div class="content_area_title">
+                                                <h3 class="text">যোগাযোগের নাম্বার</h3>
+                                            </div>
+                                        </div>
+
+                                        <div class="content_text phone_text">
+                                            <% contact_numbers.map( (cn)=>{ %>
+
+
+                                                <a href="tel:+88<%= cn.number   %>" class="text phone_number">
+                                                    <%= cn.number %>
+                                                </a>
+
+
+                                                <% })%>
+                                        </div>
+                                    </div>
+                                    <!--contact_area end-->
+
+                                    <!-- email_area start -->
+                                    <div class="email_area content_area">
+                                        <div class="content_area_icon_and_title">
+                                            <div class="content_area_icon">
+                                                <i class="fa-regular fa-paper-plane"></i>
+                                            </div>
+                                            <div class="content_area_title">
+                                                <h3 class="text">ইমেল</h3>
+                                            </div>
+                                        </div>
+
+                                        <div class="content_text">
+                                            <% emails.map( (email)=>{ %>
+                                                <a href="mailto:<%= email.email   %>"
+                                                    class="text phone_number email_text">
+                                                    <%= email.email %>
+                                                </a>
+                                            <% })%>
+
+                                        </div>
+                                    </div>
+                                    <!-- email_area end-->
+
+                                    <!-- social_media_area start -->
+                                    <div class="social_media_area content_area">
+                                        <div class="content_area_icon_and_title">
+                                            <div class="content_area_icon">
+                                                <i class="fa-solid fa-globe"></i>
+                                            </div>
+                                            <div class="content_area_title">
+                                                <h3 class="text">Social Link</h3>
+                                            </div>
+                                        </div>
+
+                                        <div class="content_text">
+                                            <ul>
+                                                <% social_links.map( (slink)=>{ %>
+                                                    <li>
+                                                        <a href="<%= slink.url %>">
+                                                            <i class="<%= slink.icon %>"></i>
+                                                        </a>
+                                                    </li>
+                                                    
+                                                <% })%>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- social_media_area end-->
+
+                                </div>
+                            </div>
+                            <!-- contact_area_left end -->
+                            <!-- contact_area_right start -->
+                            <div class="col-md-6">
+                                <div class="contact_area_right" data-aos="fade-left" data-aos-duration="1000">
+                                    <form onsubmit="messageSubmit(event)">
+                                        <div class="rirst_name_and_second_name_area form_item">
+                                            <div class="first_name_area">
+                                                <label>সম্পূর্ন নাম</label>
+                                                <input type="text" placeholder="সম্পূর্ন নাম" 
+                                                name="full_name" required>
+                                            </div>
+                                            <div class="second_name_area">
+                                                <label>বিষয়</label>
+                                                <input type="text" placeholder="বিষয়" name="subject" required >
+                                            </div>
+                                        </div>
+                                        <div class="email_area form_item">
+                                            <label>ইমেইল</label>
+                                            <input type="email" placeholder="abc@gmail.com"  name="email"  >
+                                        </div>
+                                        <div class="message_area form_item">
+                                            <label>মেসেজ</label>
+                                            <textarea  id="#" cols="10" rows="4" name="message" required placeholder="আপনার লেখা লিখুন . . ."></textarea>
+                                        </div>
+                                        <button class="submit_button"><i class="fa-regular fa-paper-plane"></i> সাবমিট
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- contact_area_right end -->
+                        </div>
+                    </div>
+                    <!-- content_left_and_right_area end -->
+
+                </div>
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+            <script>
+                function messageSubmit(event) {
+                    event.preventDefault();
+                    // console.log('comment submit hoyche');
+                    let full_name = event.target.full_name.value;
+                    let subject = event.target.subject.value;
+                    let email = event.target.email.value;
+                    let message = event.target.message.value;
+                    // console.log(full_name, subject, email, message);
+
+                    event.target.full_name.value = '';
+                    event.target.email.value = '';
+                    event.target.subject.value = '';
+                    event.target.message.value = '';
+                    // axios.post('/api/v1/blog-comment/store', {
+                    axios.post('/save/contact-message', {
+
+                        full_name: full_name,
+                        subject:subject,
+                        email:email,
+                        message:message,
+                    })
+                        .then(function (response) {
+                            // console.log(response);
+                            window.alert("আপনার কমেন্টের জন্য ধন্যবাদ!!")
+                        })
+                        .catch(function (error) {
+                            console.error(error);
+                        });
+                };
+            </script>
+        </div>
+
+
+        <!-- scroll_button_area start -->
+        <a href="#scroll_top" class="scroll-button">
+            <span class="icon">
+                <i class="fa-solid fa-angle-up"></i>
+            </span>
+        </a>
+        <!-- scroll_button_area end -->
+        <%- include('../layouts/frontend/footer.ejs') %>

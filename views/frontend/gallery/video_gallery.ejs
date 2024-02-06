@@ -1,0 +1,279 @@
+<!-- head area include -->
+<%- include('../../layouts/frontend/head.ejs',{title:'video-gallery'}) %>
+
+<!-- navbar area include -->
+<%- include('../../layouts/frontend/navbar.ejs') %>
+
+    <div class="inner-page_and_side-ber-area">
+        <div class="container">
+            <div class="inner-page_and_side-ber-area_content">
+                <!-- inner_page_area start -->
+                <div class="inner_page_area">
+                    <div class="inner_page_area_content">
+                        <!-- content_title start -->
+                        <div class="content_title_and_description" data-aos="fade-right" data-aos-duration="1000">
+                            <h2 class="title_text"><%= VideoGallery.title %></h2>
+                            <p class="description_text"><%= VideoGallery.description %></p>
+                        </div>
+                        <!-- content_title end -->
+
+                        <!-- inner_page_all_content start -->
+                        <div class="inner_page_all_content" data-aos="fade-up" data-aos-duration="1000">
+                            <% video_gallery_video.map( (video, index)=>{ %>
+                             <!--card start -->
+                             <a href="<%= video.url %>" data-gall="myGallery2"  data-autoplay="true" data-vbtype="video"   class="venobox edit_video_card video_card" data-aos="fade-up" data-aos-duration="300">
+                                <img src="<%= video.photo %>" alt="<%= video.photo_alt %>">
+                                <!-- overlay-area start -->
+                                <div class="overlay-area">
+                                    <div class="overlay-area_content">
+                                        <div class="video_icon_area">
+                                            <div class="video_icon">
+                                                <i class="fa-solid fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="image_title">
+                                            <h2 class="title_text">
+                                                <%= video.title %>
+                                            </h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- overlay-area end -->
+                            </a>
+                            <!--card end -->
+                            <% })%>
+                        </div>
+                        <!-- inner_page_all_content end -->
+
+                        <!-- pagination_area start -->
+                        <div class="pagination_area d-none" data-aos="fade-up" data-aos-duration="1000">
+                            <div class="pagination_area_content">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="pagination_text">পূর্ববর্তী</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="pagination_text pagination_number">1</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="pagination_text pagination_number">2</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="pagination_text pagination_number">3</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="pagination_text">পরবর্তী</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- pagination-area end -->
+
+                    </div>
+                </div>
+                <!-- inner_page_area end -->
+
+                <!-- side_ber_area start -->
+                <div class="side_ber_area gallery_side_bar_area" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="side_ber_area_content">
+
+                        <!-- search_area start -->
+                        <div class="search_area">
+                            <form action="#">
+                                <input type="text" placeholder="Search . . .">
+                                <button class="button_area">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                            </form>
+                        </div>
+                        <!-- search_area end -->
+
+                        <!-- categories_area start -->
+                        <div class="categories_area">
+
+                            <!-- side_ber_area_title start -->
+                            <div class="side_ber_area_title">
+                                <h2 class="title_text">ক্যাটেগরীজ</h2>
+                            </div>
+                            <!-- side_ber_area_title end -->
+
+                            <div class="categories_item_all">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="categories_name">
+                                            সব
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="categories_name">
+                                            ক্যাটেগরীজ
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="categories_name">
+                                            ক্যাটেগরীজ 1
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="categories_name">
+                                            গরীজ 2
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="categories_name">
+                                            ক্যাটেগরীজ 3
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="categories_name">
+                                            ক্যাটেগরীজ 4
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <!-- categories_area end -->
+
+                        <!-- recently_posted_area start -->
+                        <div class="recently_posted_area">
+
+                            <!-- side_ber_area_title start -->
+                            <div class="side_ber_area_title">
+                                <h2 class="title_text">সম্প্রতি পোস্ট</h2>
+                            </div>
+                            <!-- side_ber_area_title end -->
+
+                            <div class="recently_posted_item_all">
+
+                                <!-- posted_item start -->
+                                <a href="#" class="posted_item">
+                                    <div class="image_area">
+                                        <img src="/assets/images/news_image/img6.jpg" alt="img">
+                                    </div>
+                                    <div class="title_and_dete_area">
+                                        <div class="title_area">
+                                            <p class="title_text">
+                                                সামাজিক কাজ ইউনিয়ন পরিষদ কাজ সামাজিক
+                                            </p>
+                                        </div>
+                                        <div class="date_area">
+                                            <p class="date_text">
+                                                12.November.2023
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <!-- posted_item end -->
+                                <!-- posted_item start -->
+                                <a href="#" class="posted_item">
+                                    <div class="image_area">
+                                        <img src="/assets/images/news_image/img6.jpg" alt="img">
+                                    </div>
+                                    <div class="title_and_dete_area">
+                                        <div class="title_area">
+                                            <p class="title_text">
+                                                সামাজিক কাজ ইউনিয়ন
+                                            </p>
+                                        </div>
+                                        <div class="date_area">
+                                            <p class="date_text">
+                                                12.November.2023
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <!-- posted_item end -->
+                                <!-- posted_item start -->
+                                <a href="#" class="posted_item">
+                                    <div class="image_area">
+                                        <img src="/assets/images/news_image/img6.jpg" alt="img">
+                                    </div>
+                                    <div class="title_and_dete_area">
+                                        <div class="title_area">
+                                            <p class="title_text">
+                                                সামাজিক কাজ ইউনিয়ন পরিষদ কাজ সামাজিক
+                                            </p>
+                                        </div>
+                                        <div class="date_area">
+                                            <p class="date_text">
+                                                12.November.2023
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <!-- posted_item end -->
+                                <!-- posted_item start -->
+                                <a href="#" class="posted_item">
+                                    <div class="image_area">
+                                        <img src="/assets/images/news_image/img6.jpg" alt="img">
+                                    </div>
+                                    <div class="title_and_dete_area">
+                                        <div class="title_area">
+                                            <p class="title_text">
+                                                সামাজিক কাজ ইউনিয়ন পরিষদ কাজ সামাজিক
+                                            </p>
+                                        </div>
+                                        <div class="date_area">
+                                            <p class="date_text">
+                                                12.November.2023
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <!-- posted_item end -->
+
+                            </div>
+
+                        </div>
+                        <!-- recently_posted_area end -->
+
+                        <!-- popular_tag_area start -->
+                        <div class="popular_tag_area">
+
+                            <!-- side_ber_area_title start -->
+                            <div class="side_ber_area_title">
+                                <h2 class="title_text">জনপ্রিয় ট্যাগ</h2>
+                            </div>
+                            <!-- side_ber_area_title end -->
+
+                            <div class="popular_tag_all">
+                                <ul>
+                                    <% commonData.tags?.map( (tag)=>{ %>
+
+                                        <li>
+                                            <a href="#" class="tag_text">
+                                                <%= tag.title %>
+                                            </a>
+                                        </li>
+            
+                                        <% })%>
+                                </ul>
+                            </div>
+
+
+                        </div>
+                        <!-- popular_tag_area end -->
+
+                    </div>
+                </div>
+                <!-- side_ber_area end -->
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+          $('.venobox').venobox();
+        });
+      </script>
+
+    <!-- scroll_button_area start -->
+    <a href="#scroll_top" class="scroll-button">
+        <span class="icon">
+            <i class="fa-solid fa-angle-up"></i>
+        </span>
+    </a>
+    <!-- scroll_button_area end -->
+
+    <%- include('../../layouts/frontend/footer.ejs') %>

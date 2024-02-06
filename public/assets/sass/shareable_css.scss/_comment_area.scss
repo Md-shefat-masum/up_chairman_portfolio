@@ -1,0 +1,249 @@
+// comment_area start
+.comment-area {
+    border: $border;
+    border-top: 1px solid $brand_color;
+    padding: 40px 0px 0px 0px;
+    margin-top: 50px;
+    @include xs(){
+        padding: 20px 0px 0px 0px;
+        margin-top: 30px;
+    }
+
+    form {
+        border: $border;
+
+        // user-image_area_and_comment_form_area start
+        .user-image_area_and_comment_form_and_button_area {
+            border: $border;
+
+            
+
+            .user-image_and_comment_form_area {
+                display: flex;
+                align-items: center;
+                gap: 30px;
+                width: 100%;
+                @include xs(){
+                    display: grid;
+                    gap: 5px;
+                }
+
+                .user-image_area {
+                    border: $border;
+                    width: 45px;
+                    height: 45px;
+                    border-radius: 50%;
+                    border: 1px solid $brand_color;
+                    background-color: $brand_color;
+                    @include xs(){
+                        width: 25px;
+                        height: 25px;
+                    }
+
+                    img {
+                        border: $border;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        border-radius: 50%;
+                    }
+                    .fa-user{
+                        font-size: 22px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-top: 5px;
+                        @include xs(){
+                            font-size: 12px;
+                        }
+
+                    }
+                }
+                .user_name_and_comment_area{
+                    width: 100%;
+                    .user_name_area{
+                        display: flex;
+                        gap: 15px;
+                        @include xs(){
+                            display: grid;
+                        }
+                    }
+                    .comment_form_area {
+                        border: $border;
+                        outline: 0;
+                        border-bottom: 1px solid $brand_color;
+                        width: 100%;
+                        margin-left: 15px;
+                        font-family: $font_bangla;
+                        font-size: 15px;
+                        color: $light_black;
+                        flex: 1;
+                        height: 30px;
+                        padding: 0px;
+                        background-color: transparent;
+                        margin: 10px 0px;
+                        @include xs(){
+                            font-size: 12px;
+                        }
+    
+                    }
+                }
+            }
+
+            .cancel_and_submit_button_area {
+                border: $border;
+                justify-content: end;
+                display: flex;
+                gap: 10px;
+                margin-top: -8px;
+
+                .cancel_and_submit_button {
+                    border: $border;
+                    font-size: 15px;
+                    font-family: $font_bangla;
+                    color: $white;
+                    background-color: $brand_color;
+                    border: 1px solid $brand_color;
+                    padding: 3px 8px;
+                    border-radius: 3px;
+                    transition-duration: 0.4s;
+                    @include xs(){
+                        font-size: 10px;
+                    }
+
+                    &:hover {
+                        background-color: transparent;
+                        color: $brand_color;
+                    }
+                }
+            }
+        }
+
+        // user-image_area_and_comment_form_area end
+
+        
+
+        // comment_text_area end
+
+        // replay_comment_area start
+        .replay_comment_area {
+            margin-left: 60px;
+
+            .user-image_area_and_comment_form_and_button_area {
+                border: $border;
+
+                .user-image_and_comment_form_area {
+                    .user-image_area {
+                        border: $border;
+
+                        // width: 35px;
+                        // height: 35px;
+                        img {
+                            border: $border;
+                        }
+                    }
+
+                    .comment_form_area {
+                        // border: $border;
+                    }
+                }
+
+                .cancel_and_submit_button_area {
+
+                    // border: $border;
+                    .cancel_and_submit_button {
+                        // border: $border;
+                        // font-size: 12px;
+                    }
+                }
+            }
+        }
+
+        // replay_comment_area end
+    }
+    // comment_text_area start
+    .comment_text_area {
+        padding: 30px 0px 68px 0px;
+        @include xs(){
+            padding: 20px 0px 20px 0px;
+        }
+        .user-image_area_and_comment_text_area {
+            display: flex;
+            align-items: center;
+
+            .user-image_area {
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+                border: 1px solid $brand_color;
+                background-color: $brand_color;
+                margin-top: 10px;
+                @include xs(){
+                    width: 25px;
+                    height: 25px;
+                }
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 50%;
+                }
+                .fa-user{
+                    line-height: 40px;
+                    text-align: center;
+                    display: block;
+                    @include xs(){
+                        font-size: 12px;
+                    }
+
+                }
+            }
+
+            .comment_text {
+                margin-left: 15px;
+                align-items: center;
+                position: relative;
+                justify-content: start;
+                .name_text {
+                    font-size: 16px;
+                    text-align: left;
+                    color: #141414;
+                    font-weight: 600;
+                    font-family: $font_bangla;
+                }
+                .text {
+                    font-family: $font_bangla;
+                    font-size: 15px;
+                    color: #141414;
+                    @include xs(){
+                        font-size: 12px;
+                    }
+                }
+
+                .button_area {
+                    position: absolute;
+                    bottom: -38px;
+
+                    .cancel_and_submit_button {
+                        font-size: 15px;
+                        font-family: $font_bangla;
+                        color: $white;
+                        background-color: $brand_color;
+                        border: 1px solid $brand_color;
+                        padding: 3px 8px;
+                        border-radius: 3px;
+                        transition-duration: 0.4s;
+
+                        &:hover {
+                            background-color: transparent;
+                            color: $brand_color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// comment_area end

@@ -1,0 +1,69 @@
+@hostname = http://127.0.0.1:5000-role
+let data = {
+    username:"sagir"
+}
+# all
+###
+GET {{hostname}} HTTP/1.1
+
+# get
+###
+GET {{hostname}}/65129a3209fb3c8a576e7d1 HTTP/1.1
+
+# store
+###
+POST  {{hostname}}/store HTTP/1.1
+content-type: application/json
+
+{
+    "title": "new role",
+    "serial": 1,
+    "status": false
+}
+
+
+# update
+###
+POST {{hostname}}/update HTTP/1.1 
+content-type: application/json
+
+{
+    "id":"65125d782678f323a32fb2a8",
+    "title": "random User",
+    "serial": 11,
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+
+# delete
+###
+POST  {{hostname}}/delete HTTP/1.1
+content-type: application/json
+
+{
+    "id": "6517befe584d780b51e04b2d",
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+
+# restore
+###
+POST  {{hostname}}/restore HTTP/1.1
+content-type: application/json
+
+{
+    "id": "6517befe584d780b51e04b2d",
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+
+
+# destroy
+###
+POST  {{hostname}}/destroy HTTP/1.1
+content-type: application/json
+
+{
+    "id": "65125d302cf8f9fc0f49cb86",
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+
+
+

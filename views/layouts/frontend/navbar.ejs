@@ -1,0 +1,367 @@
+<body id="scroll_top">
+    <!-- navigation_area start -->
+    <nav class="navigation_area">
+        <div class="container">
+            <div class="navigation_area_content">
+                <a href="/" class="logo_area">
+                    <img src="<%= commonData.setting_titles?.value %>" alt=" Portfolio">
+
+                </a>
+                <div class="navigation_menu_area">
+
+                    <ul>
+                        <li class="dlgnone">
+                            <a href="/" class="menu_text">প্রচ্ছদ</a>
+                        </li>
+                        <li class="dlgnone">
+                            <a href="/about" class="menu_text">আমার তথ্যাদি
+                            </a>
+                        </li>
+                        <li class="dlgnone">
+                            <a href="/posts/news" class="menu_text">সংবাদ
+                            </a>
+                        </li>
+                        <li class="dlgnone">
+                            <a href="/posts/book-review" class="menu_text">বই পর্যালোচনা</a>
+                        </li>
+                        <li class="extra_link_li">
+                            <a class="menu_text">আরো দেখুন
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                            <ul class="extra_link_ul">
+                                <li>
+                                    <a href="/" class="menu_text">প্রচ্ছদ</a>
+                                </li>
+                                <!-- <li>
+                                    kdfk
+                                </li> -->
+                                <li>
+                                    <a href="/about" class="menu_text">আমার তথ্যাদি
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/posts/news" class="menu_text">সংবাদ
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/posts/book-review" class="menu_text">বই পর্যালোচনা</a>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li class="addClass">
+                            <a href="/posts/union-porishod" class="menu_text">ইউনিয়ন পরিষদ
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+
+                            <ul class="submenu_active">
+
+
+
+                                <% commonData.blog_related_category?.related_categories?.map( (category)=>{ %>
+
+
+                                    <li>
+                                        <a href="/posts<%= category.url %>" class="menu_text">
+                                            <%= category.title %>
+                                        </a>
+                                    </li>
+                                    <% })%>
+
+                            </ul>
+                        </li>
+
+
+                        <li class="addClass">
+                            <a href="/posts/social-work" class="menu_text">সামাজিক কাজ
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                            <!--  onclick="inner_menu.classList.toggle('active_class')"   onclick="addClass()"-->
+                            <ul class="submenu_active">
+
+                                <% commonData.blog_related_category_2?.related_categories?.map( (category)=>{ %>
+
+
+                                    <li>
+                                        <a href="/posts<%= category.url %>" class="menu_text">
+                                            <%= category.title %>
+                                        </a>
+                                    </li>
+                                    <% })%>
+
+                            </ul>
+                        </li>
+
+
+
+                        <li class="addClass">
+                            <button class="menu_text">লেখালেখি
+                                <i class="fa-solid fa-angle-down"></i>
+                            </button>
+                            <!--  onclick="inner_menu.classList.toggle('active_class')"   onclick="addClass()"-->
+                            <ul class="submenu_active">
+
+                                <% commonData.blog_category?.map( (category)=>{ %>
+
+
+                                    <li>
+                                        <a href="/posts<%= category.url %>" class="menu_text">
+                                            <%= category.title %>
+                                        </a>
+                                    </li>
+                                    <% })%>
+
+                            </ul>
+                        </li>
+                        <li class="addClass">
+                            <button class="menu_text">গ্যালারি
+                                <i class="fa-solid fa-angle-down"></i>
+                            </button>
+                            <ul class="submenu_active">
+                                <li>
+                                    <a href="/photo-gallery" class="menu_text">ফটো গ্যালারি</a>
+                                </li>
+                                <li>
+                                    <a href="/video-gallery" class="menu_text">ভিডিও গ্যালারি</a>
+                                </li>
+                               
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="/contact" class="menu_text">যোগাযোগ</a>
+                        </li>
+                        <li class="button_position">
+                            <!-- search area start -->
+                            <a onclick="dddd.classList.toggle('active_search')" class="search_area">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <!-- <div class="close_icon">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </div> -->
+                            </a>
+
+
+                            <div class="search_item" id="dddd">
+                                <div>
+                                    <form action="/search/posts">
+    
+                                        <input name="searchValue" type="text" placeholder="খুঁজুন...">
+                                        <button class="search_icon">
+                                            <i class="fa-solid fa-magnifying-glass"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+
+
+                            <!-- search area end -->
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- responsive_menu_area start -->
+                <div class="responsive_menu_area">
+                    <a class="responsive_menu_icon" onclick="inner_menuu.classList.toggle('active_class2')">
+                        <i class="fa-solid fa-bars"></i>
+                    </a>
+                    <div class="navigation_menu_area2 responsive_navbar" id="inner_menuu">
+                        <div class="cross_button" onclick="inner_menuu.classList.toggle('active_class2')">X</div>
+                        <ul>
+                            <li>
+                                <a href="/home" class="menu_text">প্রচ্ছদ</a>
+                            </li>
+                            <li>
+                                <a href="/about" class="menu_text">আমার তথ্যাদি
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/posts/news" class="menu_text">সংবাদ
+                                </a>
+                            </li>
+                            <li class="addClass union_porishod">
+                                <a href="/posts/union-porishod" class="menu_text">ইউনিয়ন পরিষদ
+                                    <i class="fa-solid fa-angle-down"></i>
+                                </a>
+
+                                <ul class="submenu_active2">
+
+
+
+                                    <% commonData.blog_related_category?.related_categories?.map( (category)=>{ %>
+
+
+                                        <li>
+                                            <a href="/posts<%= category.url %>" class="menu_text">
+                                                <%= category.title %>
+                                            </a>
+                                        </li>
+                                        <% })%>
+
+                                </ul>
+                            </li>
+
+
+                            <li class="addClass">
+                                <a href="/posts/social-work" class="menu_text">সামাজিক কাজ
+                                    <i class="fa-solid fa-angle-down"></i>
+                                </a>
+                                <!--  onclick="inner_menu.classList.toggle('active_class')"   onclick="addClass()"-->
+                                <ul class="submenu_active">
+
+                                    <% commonData.blog_related_category_2?.related_categories?.map( (category)=>{ %>
+
+
+                                        <li>
+                                            <a href="/posts<%= category.url %>" class="menu_text">
+                                                <%= category.title %>
+                                            </a>
+                                        </li>
+                                        <% })%>
+
+                                </ul>
+                            </li>
+                            <!-- <li>
+                                    <a href="/posts/social-work" class="menu_text">সামাজিক কাজ
+                                    </a>
+                                </li> -->
+
+                            <li>
+                                <a href="/posts/book-review" class="menu_text">বই পর্যালোচনা</a>
+                            </li>
+
+                            <li class="addClass">
+                                <span class="menu_text">লেখালেখি
+                                    <i class="fa-solid fa-angle-down"></i>
+                                </span>
+                                <!--  onclick="inner_menu.classList.toggle('active_class')"   onclick="addClass()"-->
+                                <ul class="submenu_active">
+
+                                    <% commonData.blog_category?.map( (category)=>{ %>
+
+
+                                        <li>
+                                            <a href="/posts<%= category.url %>" class="menu_text">
+                                                <%= category.title %>
+                                            </a>
+                                        </li>
+                                        <% })%>
+
+                                </ul>
+                            </li>
+                            <li class="addClass">
+                                <span class="menu_text">গ্যালারি
+                                    <i class="fa-solid fa-angle-down"></i>
+                                </span>
+                                <ul class="submenu_active">
+                                    <li>
+                                        <a href="/photo-gallery" class="menu_text">ফটো গ্যালারি</a>
+                                    </li>
+                                    <li>
+                                        <a href="/video-gallery" class="menu_text">ভিডিও গ্যালারি</a>
+                                    </li>
+                                    <!-- <li>
+                                        <a href="/audio-gallery" class="menu_text">অডিও গ্যালারি</a>
+                                    </li> -->
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="/contact" class="menu_text">যোগাযোগ</a>
+                            </li>
+                            <li class="button_position">
+                                <!-- search area start -->
+                                <!-- <button onclick="search_area_show.classList.toggle('active_search')"
+                                    class="search_area">
+                                    <i class="fa-solid fa-magnifying-glass"></i> -->
+                                <!-- <div class="close_icon">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </div> -->
+                                <!-- </button> -->
+
+                                <div id="search_area_show" class="search_item">
+                                    <form action="/search/posts">
+
+                                        <input name="searchValue" type="text" placeholder="খুঁজুন...">
+                                        <button class="search_icon">
+                                            <i class="fa-solid fa-magnifying-glass"></i>
+                                        </button>
+                                    </form>
+                                </div>
+
+                                <!-- search area end -->
+                            </li>
+                            <!-- <li>
+                                <form onsubmit="logout()" method="POST" action="/logout" autocomplete="false">
+
+                                    <button>Logout</button>
+                                </form>
+                            </li> -->
+                        </ul>
+                    </div>
+                </div>
+                <!-- responsive_menu_area end -->
+                <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+                <script>
+                    function searchSubmit(event) {
+                        event.preventDefault();
+                        console.log('comment submit hoyche');
+                        let data = event.target.searchValue.value;
+                        console.log(data);
+
+                        // axios.post('/api/v1/blog-comment/store', {
+                        axios.get(`/search/posts?q=${data}`)
+                            .then(function (response) {
+                                // console.log(response);
+                            })
+                            .catch(function (error) {
+                                console.error(error);
+                            });
+                        event.target.searchValue.value = '';
+                    };
+
+                    const logout = () => {
+                        event.preventDefault();
+                        console.log('sometinign');
+                    }
+                </script>
+                <!-- <script> -->
+                <!--   // document.querySelectorAll(".addClass").forEach((el) => {
+                    //     el.addEventListener('click', function (e) {
+                    //         e.preventDefault();
+
+                    //         let li = e.currentTarget.children[1];
+                    //         let isActive = li.classList.contains('active_class');
+
+                    //         document.querySelectorAll('.submenu_active.active_class').forEach((menu) => {
+                    //             menu.classList.remove('active_class');
+                    //         });
+
+                    //         if (!isActive) {
+                    //             li.classList.add('active_class');
+                    //         } else {
+                    //             li.classList.remove('active_class');
+                    //         }
+
+                    //         console.log('Element:', li);
+                    //     });
+                    // }); -->
+                <!-- <li>
+                                        <a href="#" class="pagination_text">পূর্ববর্তী</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="pagination_text pagination_number">1</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="pagination_text pagination_number">2</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="pagination_text pagination_number">3</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="pagination_text">পরবর্তী</a>
+                                    </li> -->
+                <!--  </script> -->
+            </div>
+        </div>
+    </nav>
+    <!-- navigation_area end -->

@@ -1,0 +1,65 @@
+@hostname = http://127.0.0.1:5000/api/v1
+let data = {
+    username:"sagir"
+}
+
+###
+GET {{hostname}}/users HTTP/1.1
+
+###
+GET {{hostname}}/user/65129a32019fb3c8a576e7d4 HTTP/1.1
+
+
+###
+POST {{hostname}}/user/store HTTP/1.1 
+content-type: application/json
+
+{
+    "username": "alifsr4er3agfhir",
+    "first_name": "alrre3rif",
+    "last_name": "sag3errir",
+    "email": "alif@eerr3eemail.com",
+    "password": "alid3err123",
+    "telegram_id": "alid3efrferdfdfff",
+    "telegram_name": "ali3eerrfdffdfsagir",
+    "mobile_number": "1233eerr4fd567",
+    "photo": "som23rrteer3ghdffneone",
+    "slug":"kd3rjfk",
+    "status": 0
+}
+
+
+###
+POST {{hostname}}/user/update HTTP/1.1 
+content-type: application/json
+
+{
+    "id":"651253055d7dbc4896e8eb9f",
+    "username": "sample user",
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+
+
+###
+POST  {{hostname}}/user/delete HTTP/1.1
+content-type: application/json
+
+{
+    "id": "651253055d7dbc4896e8eb9d"
+}
+
+###
+POST  {{hostname}}/user/restore HTTP/1.1
+content-type: application/json
+
+{
+    "id": "651253055d7dbc4896e8eb9d"
+}
+
+###
+POST  {{hostname}}/user/destroy HTTP/1.1
+content-type: application/json
+
+{
+    "id": "651253055d7dbc4896e8eb9f"
+}

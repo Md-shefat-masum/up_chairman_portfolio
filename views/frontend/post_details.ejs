@@ -1,0 +1,431 @@
+<!-- head area include -->
+<%- include('../layouts/frontend/head.ejs',{title:'post'}) %>
+
+    <!-- navbar area include -->
+    <%- include('../layouts/frontend/navbar.ejs') %>
+
+        <div class="inner-page_and_side-ber-area">
+            <div class="container">
+                <div class="inner-page_and_side-ber-area_content">
+                    <!-- inner_page_area start -->
+                    <div class="inner_page_area">
+                        <div class="inner_page_area_content">
+                            <!-- content_title start -->
+                            <div class="content_title_and_description" data-aos="fade-right" data-aos-duration="1000">
+                                <h2 class="title_text">
+                                    <%= post_details.title %> (বিস্তারিত)
+                                </h2>
+                                <p class="description_text">
+                                    <%= post_details.subtitle %>
+                                </p>
+                                <p>
+                                    <% 
+                                        
+                                        // Function to convert English digits to Bengali (Bangla) digits
+                                        function englishToBanglaDigits(number) {
+                                            const banglaDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+                                            return number.toString().replace(/\d/g, digit => banglaDigits[digit]);
+                                        }
+
+                                        // Function to convert English month names to Bengali (Bangla) month names
+                                        function getBanglaMonthName(month) {
+                                        const banglaMonths = [
+                                            'জানুয়ারি', 'ফেব্রুয়ারি', 'মার্চ', 'এপ্রিল',
+                                            'মে', 'জুন', 'জুলাই', 'আগস্ট',
+                                            'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর'
+                                        ];
+                                        return banglaMonths[month];
+                                        }
+
+                                        // Function to convert English date string to Bangla (Bengali) date format
+                                        function convertToBanglaDate(englishDateString) {
+                                            const englishDate = new Date(englishDateString);
+                                            const banglaDay = englishToBanglaDigits(englishDate.getDate());
+                                            const banglaMonth = getBanglaMonthName(englishDate.getMonth());
+                                            const banglaYear = englishToBanglaDigits(englishDate.getFullYear());
+                                        
+                                            const banglaDate = `${banglaDay} ${banglaMonth}, ${banglaYear}`;
+                                            const aa = `${banglaDay}`;
+                                            const bb = `${banglaMonth}`;
+                                            const cc = `${banglaYear}`;
+                                            return [banglaDate, aa, bb, cc];
+                                        }
+
+                                        // English date string
+                                        const englishDateString = post_details.published_date.toISOString().substring(0, 10);
+
+                                        // Convert English date string to Bangla date format
+                                        const banglaDate = convertToBanglaDate(englishDateString);
+                                        
+                                        %>
+                                        <!-- <%= banglaDate[3] %> -->
+                                </p>
+                            </div>
+                            <!-- content_title end -->
+
+                            <!-- inner_details_page start -->
+                            <div class="inner_details_page" data-aos="fade-up" data-aos-duration="1000">
+                                <!-- inner_item_details start -->
+                                <div class="inner_item_details">
+                                    <div class="image_area book_review">
+                                        <img src="<%= post_details.photo %>" alt="<%= post_details.photo_alt %>">
+                                    </div>
+                                    <div class="date_and_comment_area">
+                                        <div class="date_area date_comment_area">
+                                            <p class="date_area_text date_comment_area_text">
+                                                <%= banglaDate[0] %>
+                                            </p>
+                                        </div>
+                                        <div class="comment_area date_comment_area">
+                                            <a href="#" class="comment_area_text date_comment_area_text">
+                                                <%= post_comments?.comments?.length %> <span
+                                                        class="color_text">Comments</span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="title-area">
+                                        <h2 class="title-area_text">
+                                            <%- post_details.short_description %>
+                                        </h2>
+                                    </div>
+                                    <div class="item_description_area">
+                                        <p class="description_text">
+                                            <%- post_details.description %>
+                                        </p>
+                                    </div>
+
+                                    <!-- comment_area start -->
+                                    <div class="comment-area">
+                                        <form onsubmit="commentSubmit(event)">
+                                            <!-- user-image_area_and_comment_form_area start -->
+                                            <div class="user-image_area_and_comment_form_and_button_area">
+
+
+                                                <div class="user-image_and_comment_form_area">
+
+                                                    <div class="user-image_area">
+                                                        <!-- <div class="user_img"> -->
+                                                            <!-- <img src="/uploads/posts/bnu.png" alt=""> -->
+                                                            <% if (post_details?.photos) { %>
+                                                                <!-- If you have a photo URL, display the image -->
+                                                                <img src="<%= post_details.photos %>" alt="User Photo">
+                                                              <% } else { %>
+                                                                <!-- If no photo URL, display a Font Awesome icon -->
+                                                                <i class="fa-solid fa-user"></i>
+                                                              <% } %>
+                                                        <!-- </div> -->
+                                                    </div>
+
+                                                    <div class="user_name_and_comment_area">
+                                                        <div class=" user_name_area">
+                                                            <input name="name" class="comment_form_area" type="text"
+                                                                placeholder="আপনার নাম লিখুন">
+                                                            <input name="email" class="comment_form_area" type="text"
+                                                                placeholder="আপনার ইমেইল লিখুন">
+                                                            <input name="post_id" class="comment_form_area"
+                                                                type="hidden" value="<%= post_details._id %>"
+                                                                placeholder="comment id">
+                                                        </div>
+
+                                                        <textarea class="comment_form_area" name="comment"
+                                                            placeholder="আপনার মতামত লিখুন" id="" cols="20" rows="10"></textarea>
+                                                    </div>
+                                                </div>
+
+                                                <div class="cancel_and_submit_button_area">
+                                                    <!-- <button class="cancel_and_submit_button">Cancel</button> -->
+                                                    <button class="cancel_and_submit_button">সাবমিট</button>
+                                                </div>
+                                            </div>
+                                            <!-- user-image_area_and_comment_form_area end -->
+
+                                            <!-- comment_text_area start -->
+                                          
+                                          
+
+                                        </form>
+                                        <div class="comment_text_area">
+                                            <% post_comments?.comments?.map( (pc)=>{ %>
+                                                <div class="user-image_area_and_comment_text_area">
+                                                    <div class="mb-3 user-image_area">
+                                                        <% if (post_details?.photos) { %>
+                                                            <!-- If you have a photo URL, display the image -->
+                                                            <img src="<%= post_details.photos %>" alt="User Photo">
+                                                          <% } else { %>
+                                                            <!-- If no photo URL, display a Font Awesome icon -->
+                                                            <i class="fa-solid fa-user"></i>
+                                                          <% } %>
+                                                    </div>
+                                                    <div class="comment_text">
+                                                        <h4 class="name_text"><%= pc.name %></h4>
+                                                        <p class="text">
+                                                            <%= pc.comment %>
+                                                        </p>
+                                                       
+                                                    </div>
+                                                </div>
+                                                <% })%>
+                                        </div>
+                                    </div>
+                                    <!-- comment_area end -->
+
+                                    <!-- related_item_area start -->
+                                    <div class="related_item_area_top">
+                                        <h4>
+                                            <%= post_details.title.slice(0,20) %> বিষয়ে আরো .....
+                                        </h4>
+                                        <div class="related_item_areaa">
+                                            <% posts.sort((a, b)=> b.total_view - a.total_view); %>
+                                                <% posts.slice(0,4).map( (sw)=>{ %>
+                                                    <!-- item_area start -->
+                                                    <div class="item_areaa">
+                                                        <a href="/post/<%= sw._id %>"
+                                                            class="social_work_image_carda edit_social_work_image_carda edit_details_social_work_carda">
+
+                                                            <!-- overlay-area start -->
+                                                            <div class="overlay-areaa">
+                                                                <div class="overlay-area_contenta">
+
+                                                                    <div class="image_titlea">
+                                                                        <h2 class="title_texta">
+                                                                            <%= sw.subtitle.slice(0,90) %>.....
+                                                                        </h2>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <!-- overlay-area end -->
+                                                            <div class="item_area_image_div">
+                                                                <img src="<%= sw.photo %>" alt="img">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <!-- item_area end -->
+                                                    <% })%>
+                                        </div>
+                                    </div>
+
+                                    <!-- related_item_area end -->
+                                </div>
+                                <!-- inner_item_details end -->
+                            </div>
+                            <!-- inner_details_page end -->
+
+
+
+                        </div>
+                    </div>
+                    <!-- inner_page_area end -->
+
+                    <!-- side_ber_area start -->
+                    <div class="side_ber_area" data-aos="fade-left" data-aos-duration="1000">
+                        <div class="side_ber_area_content">
+
+                            <!-- search_area start -->
+                            <div class="search_area">
+                                <form action="/search/posts">
+                                    <input name="searchValue" type="text" placeholder="খুজুন . . .">
+                                    <button class="button_area">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                </form>
+                            </div>
+                            <!-- search_area end -->
+
+                            <!-- categories_area start -->
+                            <div class="categories_area">
+
+                                <!-- side_ber_area_title start -->
+                                <div class="side_ber_area_title">
+                                    <h2 class="title_text">ক্যাটেগরীজ</h2>
+                                </div>
+                                <!-- side_ber_area_title end -->
+
+                                <div class="categories_item_alla new_categories_item_all">
+                                    <ul>
+                                        <% commonData.blog_category?.map( (cm)=>{ %>
+
+                                            <li>
+                                                <a href="/posts<%= cm.url %>"
+                                                    class="categories_namea new_categories_name">
+                                                    <%= cm.title %>
+                                                </a>
+                                            </li>
+
+                                            <% })%>
+                                    </ul>
+                                </div>
+
+                            </div>
+                            <!-- categories_area end -->
+
+                            <!-- recently_posted_area start -->
+                            <div class="recently_posted_area">
+
+                                <!-- side_ber_area_title start -->
+                                <div class="side_ber_area_title">
+                                    <h2 class="title_text">সম্প্রতি পোস্ট</h2>
+                                </div>
+                                <!-- side_ber_area_title end -->
+
+                                <div class="recently_posted_item_all">
+                                    <% filterPost.slice(-3).map( (product)=>{ %>
+                                      <!-- <p>
+                                        <%=convertToBanglaDate(product.published_date.toISOString().substring(0, 10))[0] %>
+                                      </p> -->
+                                        <!-- posted_item start -->
+                                        <a href="/post/<%= product._id %>" class="posted_item">
+                                            <div class="image_area">
+                                                <img src="/<%= product.photo %>" alt="img">
+                                            </div>
+                                            <div class="title_and_dete_area">
+                                                <div class="title_area">
+                                                    <p class="title_text">
+                                                        <%= product.title %>
+                                                    </p>
+                                                </div>
+                                                <div class="date_area">
+                                                    <p class="date_text">
+                                                        <%=convertToBanglaDate(product.published_date.toISOString().substring(0, 10))[0] %>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <!-- posted_item end -->
+                                        <% })%>
+                                </div>
+
+                            </div>
+                            <!-- recently_posted_area end -->
+
+                            <!-- categories details -->
+                            <!-- recently_posted_area start -->
+                            <div class="recently_posted_area">
+
+                                <!-- side_ber_area_title start -->
+                                <div class="side_ber_area_title">
+                                    <h2 class="title_text">
+                                        <%= post.title %> বিষয়ে আরো...
+                                    </h2>
+                                </div>
+                                <!-- side_ber_area_title end -->
+
+                                <div class="recently_posted_item_all">
+                                    <% filterPost2.map( (sw)=>{ %>
+                                        <!-- posted_item start -->
+                                        <a href="/post/<%= sw._id %>" class="posted_item">
+                                            <div class="image_area">
+                                                <img src="<%= sw.photo %>" alt="img">
+                                            </div>
+                                            <div class="title_and_dete_area">
+                                                <div class="title_area">
+                                                    <p class="title_text">
+                                                        <%= sw.title %>
+                                                    </p>
+                                                </div>
+                                                <div class="date_area">
+                                                    <p class="date_text">
+                                                        <%= convertToBanglaDate(sw.published_date.toISOString().substring(0, 10))[0] %>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <!-- posted_item end -->
+                                        <% })%>
+                                </div>
+
+                            </div>
+                            <!-- recently_posted_area end -->
+
+                            <!-- popular_tag_area start -->
+                            <div class="popular_tag_area">
+
+                                <!-- side_ber_area_title start -->
+                                <div class="side_ber_area_title">
+                                    <h2 class="title_text">জনপ্রিয় ট্যাগ</h2>
+                                </div>
+                                <!-- side_ber_area_title end -->
+
+                                <div class="popular_tag_all">
+                                    <ul>
+                                        <% commonData.tags?.map( (tag)=>{ %>
+
+                                            <li>
+                                                <a href="#" class="tag_text">
+                                                    <%= tag.title %>
+                                                </a>
+                                            </li>
+
+                                            <% })%>
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                            <!-- popular_tag_area end -->
+
+                        </div>
+                    </div>
+                    <!-- side_ber_area end -->
+                </div>
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+            <script>
+                function commentSubmit(event) {
+                    event.preventDefault();
+                    // console.log('comment submit hoyche');
+                    let comment = event.target.comment.value;
+                    let name = event.target.name.value;
+                    let email = event.target.email.value;
+                    let post_id = event.target.post_id.value;
+                    // console.log(comment, name, email, post_id);
+
+                    event.target.name.value = '';
+                    event.target.email.value = '';
+                    event.target.comment.value = '';
+                    // axios.post('/api/v1/blog-comment/store', {
+                    axios.post('/save/comment', {
+
+                        comment: comment,
+                        name: name,
+                        email: email,
+                        post_id: post_id,
+                    })
+                        .then(function (response) {
+                            // console.log("respose from ejs",response);
+                        })
+                        .catch(function (error) {
+                            console.error(error);
+                        });
+                };
+            </script>
+        </div>
+
+        <!-- scroll_button_area start -->
+        <a href="#scroll_top" class="scroll-button">
+            <span class="icon">
+                <i class="fa-solid fa-angle-up"></i>
+            </span>
+        </a>
+        <!-- scroll_button_area end -->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+                <script>
+                    function searchSubmit(event) {
+                        event.preventDefault();
+                        console.log('comment submit hoyche');
+                        let data = event.target.searchValue.value;
+                        console.log(data);
+    
+                        // axios.post('/api/v1/blog-comment/store', {
+                            axios.get(`/search/posts?q=${data}`)
+                            .then(function (response) {
+                                // console.log(response);
+                            })
+                            .catch(function (error) {
+                                console.error(error);
+                            });
+                            event.target.searchValue.value = '';
+                        };
+                </script>
+        <%- include('../layouts/frontend/footer.ejs') %>

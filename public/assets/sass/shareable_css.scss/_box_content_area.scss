@@ -1,0 +1,143 @@
+// box_content_area atart
+.box_content_area {
+    border: $border;
+    // padding: 160px 0px;
+    position: relative;
+    overflow: hidden;
+    background-color: $blue_white;
+    padding-top: 40px;
+    padding-bottom: 0px;
+    @include xs(){
+        padding-top: 20px;
+    }
+    &::after {
+        content: "";
+        background-image: url(../images/bg_dote_image/bg_dote.png);
+        width: 40%;
+        height: 50%;
+        position: absolute;
+        top: 20px;
+        left: 42px;
+    }
+    &::before {
+        content: "";
+        background-image: url(../images/bg_dote_image/bg_dote.png);
+        width: 40%;
+        height: 50%;
+        position: absolute;
+        bottom: 20px;
+        right: 40px;
+    }
+  
+    .box_content {
+        border: $border;
+        position: relative;
+        z-index: 1;
+    
+        ul {
+            border: $border;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            li {
+                border: $border;
+                @include xs(){
+                    width: 100%;
+                }
+                .box {
+                    border: $border;
+                    display: flex;
+                    width: 300px;
+                    min-height: 114px;
+                    // max-height: 90px;
+                    background-color: $white;
+                    align-items: center;
+                    padding: 15px;
+                    overflow: hidden;
+                    position: relative;
+                    @include xs(){
+                        width: 100%;
+                        padding: 8px;
+                    }
+                    &:hover{
+                        .box_text_area{
+                            .number_text{
+                                color: $brand_color;
+                            }
+                        }
+                        .bg_circle{
+                            background-color: $brand_color;
+                        }
+                    }
+                    .box_image_area {
+                        border: $border;
+                        width: 60px;
+                        height: 60px;
+                        padding: 8px;
+                        background-color: #e3e3e3e0;
+                        background-color: $blue_white;
+                        // border: 1px solid $brand_color;
+                        margin-right: 20px;
+                        @include xs(){
+                            padding: 4px;
+                            margin-right: 10px;
+                        }
+                        img {
+                            border: $border;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                    .box_text_area {
+                        border: $border;
+                        flex: 1;
+                        z-index: 1;
+                        .number_text {
+                            border: $border;
+                            font-size: 35px;
+                            font-weight: bold;
+                            font-family: $font_bangla;
+                            color: $black;
+                            transition-duration: .4s;
+                            // color: $brand_color;
+                            @include xs(){
+                                font-size: 25px;
+                            }
+                        }
+                        .title_text {
+                            border: $border;
+                            font-size: 14px;
+                            font-family: $font_bangla;
+                            color: $deep_black;
+                            @include xs(){
+                                font-size: 10px;
+                            }
+                        }
+                    }
+                    .bg_number {
+                        font-size: 55px;
+                        font-weight: bold;
+                        font-family: $font_bangla;
+                        color: $blue_white;
+                        position: absolute;
+                        top: 20%;
+                        right: 10%;
+                    }
+                    .bg_circle {
+                        width: 100px;
+                        height: 100px;
+                        background-color: $off_white;
+                        border: 1px solid $border_black;
+                        border-radius: 50%;
+                        position: absolute;
+                        top: -50px;
+                        right: -50px;
+                        transition-duration: .4s;
+                    }
+                }
+            }
+        }
+    }
+}
+// box_content_area end

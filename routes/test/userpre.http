@@ -1,0 +1,23 @@
+@hostname = http://127.0.0.1:5000/api/v1
+let data = {
+    username:"sagir"
+}
+
+###
+GET {{hostname}}/users HTTP/1.1
+
+###
+GET {{hostname}}/user/650fc777de4a2e6b1185a677 HTTP/1.1
+
+###
+POST  {{hostname}}/user/delete/650fc777de4a2e6b1185a677 HTTP/1.1
+
+###
+POST {{hostname}}/user/update/650fc777de4a2e6b1185a677 HTTP/1.1 
+headers: 
+  Content-Type: application/json,
+
+body:
+{
+  "username": "Yamin",
+}

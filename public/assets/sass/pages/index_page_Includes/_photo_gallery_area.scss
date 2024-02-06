@@ -1,0 +1,39 @@
+// photo_gallery_are start
+.photo_gallery_are {
+    border: $border;
+    background-color: $white;
+    margin: 0px 40px;
+    padding: 80px 0px;
+    margin-top: 80px;
+    position: relative;
+    @include xs(){
+        margin-top: 0px;
+        padding: 20px 0px;
+    }
+    &::after {
+        content: "";
+        width: 50%;
+        height: 30%;
+        background-image: url(../images/bg_dote_image/bg_dote.png);
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+    }
+    .photo_gallery_are_content {
+        border: $border;
+        z-index: 1;
+        position: relative;    
+        .all_photo_card {
+            border: $border;
+            gap: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 80px;
+            margin-bottom: 40px;
+            @include xs(){
+                margin-top: 20px;
+            }
+        }
+    }
+}
+// photo_gallery_are end

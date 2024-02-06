@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>login</title>
+    <link rel="stylesheet" href="/fonts/google_icon/google_icons.css">
+    <link rel="stylesheet" href="/backend/css/login.css">
+    <script src="/backend/js/axios.js"></script>
+    <script src="/backend/js/sweetalert.js"></script>
+</head>
+
+<body>
+    <div class="main_body">
+        <div id="login">
+            <div class="container">
+                <div class="login_form">
+                    <div class="heading">
+                        <h2>LOGIN</h2>
+                    </div>
+                    <div class="bg1"></div>
+                    <div class="bg2"></div>
+                    <div class="bg3"></div>
+                    <div class="form_content">
+                        <form onsubmit="login()" method="POST" action="/login-submit" autocomplete="false">
+                            <div class="form_group" id="email_input">
+                                <div class="input_body">
+                                    <span class="icon material-symbols-outlined">
+                                        person
+                                    </span>
+                                    <input type="email" value="admin@gmail.com" placeholder="email" name="email"
+                                        id="email">
+                                </div>
+                                <label for="email">
+                                    <div class="text">Email</div>
+                                </label>
+                            </div>
+                            <div class="form_group">
+                                <div class="input_body">
+                                    <span class="icon material-symbols-outlined">
+                                        key
+                                    </span>
+                                    <input type="password" value="1234" placeholder="password" name="password"
+                                        id="password">
+                                </div>
+                                <label for="password">
+                                    <div class="text">password</div>
+                                </label>
+                            </div>
+                            <div class="form_group button_group">
+                                <div class="buttons">
+                                    <button onclick="remove_form_action_classes()" type="reset">
+                                        <div class="text">reset</div>
+                                    </button>
+                                    <button type="submit">
+                                        <div class="text">submit</div>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const remove_form_action_classes = function () {
+            [...document.querySelectorAll('form button')].forEach(e => e.disabled = false);
+            [...document.querySelectorAll('form .error')].forEach(e => e.remove());
+            [...document.querySelectorAll('form .form_group_error')].forEach(e => e.classList.remove("form_group_error"));
+        }
+        const login = () => {
+            event.preventDefault();
+            axios.post("/login-submit", new FormData(event.currentTarget))
+                .then(res => {
+                    // {{-- localStorage.token = res.data.access_token; --}}
+                    console.log('from form submitddd',res.data.role);
+                    // return;
+
+                    if (res?.data?.role === 1) {
+                        console.log('role', 1);
+                        window.toaster( "success");
+                        return location.href = "/dashboard";
+
+                    }
+                    // if (res?.data?.title == 'RajiburRahman') {
+                    //     window.toaster( "success");
+                    //     return location.href = "/dashboard";
+
+                    // }
+                    else{
+                        return location.href = "/home";
+                    }
+
+                    console.log(res);
+                    console.log(res.data.access_token);
+                })
+                .catch(err => {
+                    let { code, data } = err.response.data;
+                    window.toaster(code, "error");
+                    console.log(data);
+                    console.log(err);
+                    var parentDiv = document.getElementById('email_input');
+                    parentDiv.insertAdjacentHTML('afterend', `<Div class="form_error text-danger">${err?.response?.data?.code}</Div>`)
+                })
+        }
+    </script>
+</body>
+
+</html>

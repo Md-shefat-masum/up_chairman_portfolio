@@ -1,0 +1,99 @@
+.calendar_app {
+    position: absolute;
+    top: 15px;
+    right: 0;
+    z-index: 21;
+    backdrop-filter: blur(7px);
+
+    .calendar_box {
+        user-select: none;
+
+        .calendar_navbar,
+        .month_year_selection,
+        .calendar_body,
+        .event_popup_form {
+            position: relative;
+            z-index: 9;
+        }
+
+        .calendar_navbar {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+
+            // .selected_details{}
+            .navigations {
+                button {
+                    background-color: transparent;
+                    padding: 0;
+                    color: var(--brand_white2);
+                    border: 0;
+
+                    span {
+                        font-weight: bold;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        .month_year_selection {
+            select {
+                padding: 2px;
+                border: 0;
+            }
+        }
+
+        .calendar_body {
+            table {
+
+                th,
+                td {
+                    text-align: center;
+                    padding: 7px 5px;
+                    cursor: pointer;
+                    color: var(--brand_white2);
+
+                    .friday {
+                        color: #dc8a73;
+                    }
+
+                    .today {
+                        color: #769e85;
+                        font-weight: bold;
+                    }
+
+                    &:hover {
+                        color: var(--brand_white);
+                    }
+                }
+            }
+        }
+
+        .event_popup_form {
+            border-top: 1px solid var(--brand_white);
+            margin-top: 5px;
+            padding-top: 10px;
+            max-width: 265px;
+
+            input,
+            textarea {
+                border-radius: 2px;
+                padding: 5px;
+                width: 100%;
+                margin: 10px 0px;
+            }
+
+            .select_time {
+                display: flex;
+                gap: 20px;
+                align-items: center;
+            }
+
+            .action {
+                display: flex;
+                gap: 20px;
+            }
+        }
+    }
+}

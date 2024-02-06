@@ -1,0 +1,156 @@
+<!-- head area include -->
+<%- include('../layouts/frontend/head.ejs',{title:'post'}) %>
+
+    <!-- navbar area include -->
+    <%- include('../layouts/frontend/navbar.ejs') %>
+
+        <div class="inner-page_and_side-ber-area">
+            <div class="container">
+                <div class="inner-page_and_side-ber-area_content">
+                    <!-- inner_page_area start -->
+                    <div class="inner_page_area">
+                        <div class="inner_page_area_content">
+                            <!-- content_title start -->
+                            <div class="content_title_and_description" data-aos="fade-right" data-aos-duration="1000">
+                                <h2 class="title_text">
+                                    <%= notice_details.title %> (বিস্তারিত)
+                                </h2>
+                                <p class="description_text">
+                                    <%= notice_details.subtitle %>
+                                </p>
+                                <p>
+                                    <% 
+                                        
+                                        // Function to convert English digits to Bengali (Bangla) digits
+                                        function englishToBanglaDigits(number) {
+                                            const banglaDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+                                            return number.toString().replace(/\d/g, digit => banglaDigits[digit]);
+                                        }
+
+                                        // Function to convert English month names to Bengali (Bangla) month names
+                                        function getBanglaMonthName(month) {
+                                        const banglaMonths = [
+                                            'জানুয়ারি', 'ফেব্রুয়ারি', 'মার্চ', 'এপ্রিল',
+                                            'মে', 'জুন', 'জুলাই', 'আগস্ট',
+                                            'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর'
+                                        ];
+                                        return banglaMonths[month];
+                                        }
+
+                                        // Function to convert English date string to Bangla (Bengali) date format
+                                        function convertToBanglaDate(englishDateString) {
+                                            const englishDate = new Date(englishDateString);
+                                            const banglaDay = englishToBanglaDigits(englishDate.getDate());
+                                            const banglaMonth = getBanglaMonthName(englishDate.getMonth());
+                                            const banglaYear = englishToBanglaDigits(englishDate.getFullYear());
+                                        
+                                            const banglaDate = `${banglaDay} ${banglaMonth}, ${banglaYear}`;
+                                            const aa = `${banglaDay}`;
+                                            const bb = `${banglaMonth}`;
+                                            const cc = `${banglaYear}`;
+                                            return [banglaDate, aa, bb, cc];
+                                        }
+
+                                        // English date string
+                                        const englishDateString = notice_details.date.toISOString().substring(0, 10);
+
+                                        // Convert English date string to Bangla date format
+                                        const banglaDate = convertToBanglaDate(englishDateString);
+                                        
+                                        %>
+                                        <!-- <%= banglaDate[3] %> -->
+                                </p>
+                            </div>
+                            <!-- content_title end -->
+
+                            <!-- inner_details_page start -->
+                            <div class="inner_details_page" data-aos="fade-up" data-aos-duration="1000">
+                                <!-- inner_item_details start -->
+                                <div class="inner_item_details">
+                                    <!-- <div class="image_area book_review">
+                                        <img src="" alt="">
+                                    </div> -->
+                                    
+
+                                    <div class="title-area">
+                                        <h2 class="title-area_text">
+                                            <%- notice_details.title %>
+                                        </h2>
+                                    </div>
+                                    <div class="item_description_area">
+                                        <p class="description_text">
+                                            <%- notice_details.description %>
+                                        </p>
+                                    </div>
+
+                                    <div class="date_and_comment_area">
+                                        <div class="date_area date_comment_area">
+                                            <p class=" notice_details_date">
+                                              তারিখঃ   <%= banglaDate[0] %>
+                                            </p>
+                                        </div>
+                                        <div class="comment_area date_comment_area">
+                                           
+                                        </div>
+                                    </div>
+
+                                    <!-- related_item_area start -->
+                                    
+
+                                    <!-- related_item_area end -->
+                                </div>
+                                <!-- inner_item_details end -->
+                            </div>
+                            <!-- inner_details_page end -->
+
+
+
+                        </div>
+                    </div>
+                    <!-- inner_page_area end -->
+
+                    <!-- side_ber_area start -->
+                   
+                    <!-- side_ber_area end -->
+                </div>
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+            <script>
+                function commentSubmit(event) {
+                    event.preventDefault();
+                    console.log('comment submit hoyche');
+                    let comment = event.target.comment.value;
+                    let name = event.target.name.value;
+                    let email = event.target.email.value;
+                    let post_id = event.target.post_id.value;
+                    console.log(comment, name, email, post_id);
+
+                    event.target.name.value = '';
+                    event.target.email.value = '';
+                    event.target.comment.value = '';
+                    // axios.post('/api/v1/blog-comment/store', {
+                    axios.post('/save/comment', {
+
+                        comment: comment,
+                        name: name,
+                        email: email,
+                        post_id: post_id,
+                    })
+                        .then(function (response) {
+                            // console.log(response);
+                        })
+                        .catch(function (error) {
+                            console.error(error);
+                        });
+                };
+            </script>
+        </div>
+
+        <!-- scroll_button_area start -->
+        <a href="#scroll_top" class="scroll-button">
+            <span class="icon">
+                <i class="fa-solid fa-angle-up"></i>
+            </span>
+        </a>
+        <!-- scroll_button_area end -->
+        <%- include('../layouts/frontend/footer.ejs') %>

@@ -1,0 +1,38 @@
+.home_time_and_date {
+    color: var(--brand_white);
+    text-transform: uppercase;
+    width: 270px;
+    color: var(--brand_white);
+    text-transform: uppercase;
+    width: 270px;
+    position: absolute;
+    bottom: 40px;
+
+    .home_time_and_date_body {
+
+        .date {
+            .day {
+                font-family: 'anurati';
+                font-size: 35px;
+                text-align: center;
+            }
+
+            .month {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                padding: 15px 0px;
+            }
+        }
+
+        .time {
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+            .med{
+                font-size: 10px;
+                align-self: flex-end;
+            }
+        }
+    }
+}

@@ -1,0 +1,344 @@
+// union_porishad_area start
+.union_porishad_area {
+    border: $border;
+    background-color: $white;
+    margin: 80px 40px 80px 40px;
+    padding: 80px 40px 80px 40px;
+    position: relative;
+    @include xs(){
+        margin: 40px 40px 40px 40px;
+        padding: 40px 0px 40px 0px;
+    }
+    &::after {
+        content: "";
+        width: 40%;
+        height: 40%;
+        background-image: url(../images/bg_dote_image/bg_dote.png);
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+    .union_porishad_area_content {
+        border: $border;
+        position: relative;
+        z-index: 1;
+        // union_porishad_left_and_right_area start
+        .union_porishad_left_and_right_area {
+            border: $border;
+            display: flex;
+            margin-top: 80px;
+            background-color: $blue_white;
+
+            @include xs(){
+                display: flex;
+                flex-direction: column;
+            }
+            // left_area start
+            .left_area {
+                border: $border;
+                width: 500px;
+                // margin-right: 40px;
+                padding: 40px;
+                // position: relative;
+
+                // align-items: start;
+                // display: grid;
+
+                // background-color: $blue_white;
+                // union_porishad_text_and_link_area start
+                @include xs(){
+                    width: 100%;
+                    padding: 40px 0px;
+                }
+                .union_porishad_text_and_link_area {
+                    border: $border;
+                    margin-bottom: 40px;
+                    @include xs(){
+                        margin-bottom: 20px;
+                    }
+                    .description_area {
+                        border: $border;
+                        .description_text {
+                            border: $border;
+                            font-family: $font_bangla;
+                            font-size: 16px;
+                            color: $black;
+                            text-align: justify;
+                            // font-weight: bold;
+                            @include xs(){
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                    .link_area {
+                        border: $border;
+                        align-items: center;
+                        display: flex;
+                        margin-top: 20px;
+                        @include xs(){
+                            margin-top: 10px;
+                        }
+
+                        .link_text {
+                            border: $border;
+                            font-family: $font_bangla;
+                            font-size: 16px;
+                            color: $brand_color;
+                            font-weight: bold;
+                            transition-duration: 0.4s;
+                            &:hover {
+                                color: $deep_black;
+                                .link_area_icon {
+                                    i {
+                                        color: $deep_black;
+                                    }
+                                }
+                            }
+                            .link_area_icon {
+                                border: $border;
+                                margin-left: 10px;
+                                align-items: center;
+                                display: inline-flex;
+                                i {
+                                    border: $border;
+                                    font-size: 16px;
+                                    color: $brand_color;
+                                    transition-duration: 0.4s;
+                                }
+                            }
+                        }
+                    }
+                }
+                // union_porishad_text_and_link_end
+
+                // image_area start
+                .image_area {
+                    border: $border;
+                    // position: absolute;
+                    // bottom: calc(0px - -40px);
+
+                    .all_image_area {
+                        border: $border;
+                        ul {
+                            border: $border;
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 5px;
+                            @include xs(){
+                                display: flex;
+                                flex-direction: column;
+                            }
+                            li {
+                                border: $border;
+                                .image {
+                                    border: $border;
+                                    width: 136px;
+                                    height: 90px;
+                                    overflow: hidden;
+                                    position: relative;
+                                    @include xs(){
+                                        width: 100%;
+                                        // height: 100%;
+                                        height: 120px;
+                                    }
+                                    .overlay_video_area {
+                                        position: absolute;
+                                        top: 0px;
+                                        left: 0px;
+                                        width: 35px;
+                                        height: 35px;
+                                        border: 1px solid $white;
+                                        border-radius: 50%;
+                                        align-items: center;
+                                        display: flex;
+                                        justify-content: center;
+                                        left: 50%;
+                                        top: 50%;
+                                        transform: translateX(-50%) translateY(-50%) ;
+                                        i {
+                                            font-size: 16px;
+                                            color: white;
+                                        }
+                                    }
+                                    &:hover {
+                                        img {
+                                            scale: 1.1;
+                                        }
+                                    }
+                                    img {
+                                        border: $border;
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
+                                        transition-duration: 0.4s;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                // image_area end
+            }
+            // left_area end
+
+            // right_area start
+            .right_area {
+                border: $border;
+                // background-color: $blue_white;
+                padding: 40px;
+                flex: 1;
+                @include xs(){
+                    padding: 0px;
+                }
+                .notice_and_image_area {
+                    border: $border;
+                    // notice_area start
+                    .notice_area {
+                        border: $border;
+                        background-color: $white;
+                        min-height: 603px;
+                        padding: 40px;
+                        gap: 15px;
+                        display: grid;
+                        position: relative;
+                        @include xs(){
+                            padding: 0px;
+                        }
+                        &::after {
+                            content: "";
+                            background-image: url("../images/bg_dote_image/bg_dote.png");
+                            width: 70%;
+                            height: 50%;
+                            position: absolute;
+                            bottom: 10px;
+                            right: 10px;
+                        }
+                        .notice_title_area {
+                            border: $border;
+                            border-bottom: 1px solid $brand_color;
+                            padding-bottom: 15px;
+                            margin-bottom: 15px;
+                            @include xs(){
+                                margin-bottom: 0px;
+                            }
+                            .notice_text {
+                                border: $border;
+                                font-family: $font_bangla;
+                                font-size: 25px;
+                                font-weight: bold;
+                                color: $brand_color;
+                                @include xs(){
+                                    font-size: 16px;
+                                }
+                            }
+                        }
+                        .all_notice_item {
+                            border: $border;
+                            gap: 15px;
+                            display: grid;
+                            z-index: 1;
+                            // notice_item start
+                            .notice_item {
+                                border: $border;
+                                display: flex;
+                                background-color: $blue_white;
+                                padding: 15px;
+                                @include xs(){
+                                    display: flex;
+                                    flex-direction: column;
+                                    gap: 10px;
+                                    padding: 10px 0px;
+                                }
+                                .notice_date_area {
+                                    border: $border;
+                                    width: 120px;
+                                    text-align: center;
+                                    margin-right: 15px;
+                                    // padding: 10px;
+                                   @include xs(){
+                                    width: 80px;
+                                   }
+                                    .date_month {
+                                        border: $border;
+                                        background-color: $brand_color;
+                                        padding: 5px 10px;
+                                        .date_month_text {
+                                            border: $border;
+                                            font-family: $font_bangla;
+                                            font-size: 16px;
+                                            color: $black;
+                                            @include xs(){
+                                                font-size: 12px;
+                                            }
+                                        }
+                                    }
+                                    .year {
+                                        border: $border;
+                                        background-color: $black;
+                                        padding: 3px 10px;
+
+                                        .year_text {
+                                            border: $border;
+                                            font-family: $font_bangla;
+                                            font-size: 16px;
+                                            color: $white;
+                                            @include xs(){
+                                                font-size: 12px;
+                                            }
+                                        }
+                                    }
+                                }
+                                .notice_text_area {
+                                    border: $border;
+                                    flex: 1;
+                                    &:nth-child(2){
+                                        @include xs(){
+                                       font-size: 12px;
+                                       text-align: justify;
+                                    //    margin-bottom: 10px;
+                                        }
+                                    } 
+                                   .single_notice{
+                                    @include xs(){
+                                        font-size: 14px;
+                                    }
+                                   }
+
+                                    .notice_text {
+                                        border: $border;
+                                        font-family: $font_bangla;
+                                        font-size: 18px;
+                                        color: $black;
+                                        // font-weight: bold;
+                                        text-align: justify;
+                                        .read_more_button_area {
+                                            border: $border;
+                                            &:hover {
+                                                .button_text {
+                                                    color: $light_black;
+                                                }
+                                            }
+                                            .button_text {
+                                                border: $border;
+                                                font-family: $font_bangla;
+                                                font-size: 16px;
+                                                font-weight: bold;
+                                                color: $brand_color;
+                                                transition-duration: 0.4s;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            // notice_item end
+                        }
+                    }
+                    // notice_area end
+                }
+            }
+            // right_area end
+        }
+        // union_porishad_left_and_right_area end
+    }
+}
+// union_porishad_area end

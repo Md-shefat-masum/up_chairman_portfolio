@@ -1,0 +1,40 @@
+input.form_checkbox {
+    position: relative;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    background-color: transparent;
+
+    &::before {
+        content: "";
+        font-family: "Material Symbols Filled";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: var(--brand_color);
+        border: 1px solid var(--brand_color2);
+    }
+
+    &::after {
+        content: "\e876";
+        font-family: "Material Symbols Filled";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        color: var(--brand_white);
+        display: none;
+        font-size: 21px;
+        line-height: 22px;
+        text-align: center;
+    }
+
+    &:checked {
+        &::after {
+            display: block;
+        }
+    }
+}

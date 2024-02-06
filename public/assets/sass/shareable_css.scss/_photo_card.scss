@@ -1,0 +1,67 @@
+.photo_card {
+    width: 320px;
+    height: 360px;
+    position: relative;
+    overflow: hidden;
+    @include xs(){
+        width: 100%;
+        min-height: 100px;
+        max-height: 110px;
+    }
+    &:hover {
+        img {
+            scale: 1.1;
+        }
+        .overlay-area {
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition-duration: 0.4s;
+    }
+    // overlay-area start
+    .overlay-area {
+        border: $border;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        padding: 40px;
+        transition-duration: 0.4s;
+
+        align-items: end;
+        display: grid;
+        width: 100%;
+        padding: 20px;
+        .overlay-area_content {
+            background-color: $button_transfarent_black;
+            background-color: #000000b0;
+            height: unset;
+            padding: 10px;
+            border: 1px solid $brand_color;
+            align-items: end;
+            display: grid;
+            position: relative;
+            
+            .image_title {
+                border: $border;
+                .title_text {
+                    border: $border;
+                    font-family: $font_bangla;
+                    font-size: 16px;
+                    // font-weight: bold;
+                    // color: $brand_color;
+                    color: $brand_color;
+                    @include xs(){
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+    // overlay-area end
+}

@@ -1,0 +1,42 @@
+.cursor_pointer {
+    cursor: pointer;
+}
+
+.cursor_n_resize {
+    cursor: n-resize;
+}
+
+.pagination {
+    .dark & {
+        background-color: var(--black_900);
+        border-radius: 25px;
+        padding: 2px 5px;
+        margin-top: 10px;
+    
+        li {
+    
+            a,
+            .page-link {
+                background: transparent;
+                border: 0;
+                color: var(--black_200);
+                border: 1px solid var(--black_900);
+            }
+    
+    
+            &.pagination-page-nav {
+                a {
+                    &:hover {
+                        background-color: var(--black_600);
+                    }
+                }
+            }
+    
+            &.active {
+                a {
+                    background-color: var(--black_600);
+                }
+            }
+        }
+    }
+}

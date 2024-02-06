@@ -1,0 +1,151 @@
+// news-area start
+.news-area {
+    border: $border;
+    background-color: $white;
+    margin: 80px 40px 0px 40px;
+    padding: 80px 0px;
+    position: relative;
+    @include xs(){
+        margin: 40px 40px 0px 40px;
+        padding: 0px 0px;
+    }
+    .dote_bg_image {
+        width: 40%;
+        height: 40%;
+        position: absolute;
+        left: 20px;
+        top: 20px;
+    }
+    .news-area_content {
+        border: $border;
+        z-index: 1;
+        position: relative;
+        // news_item-all start
+        .news_item-all {
+            border: $border;
+            margin: 80px 0px 40px 0px;
+            @include xs(){
+                margin: 40px 0px 40px 0px;
+            }
+            .top_item_area {
+                border: $border;
+                display: flex;
+                gap: 10px;
+                @include xs(){
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .left_area {
+                    border: $border;
+                    flex: 1;
+                    .item {
+                        width: 100%;
+                        height: 100%;
+                        //    layout_area start
+                        .layout_area {
+                            .item_date_and_title_area {
+                                padding: 15px 10px;
+                                .date_area {
+                                    margin-bottom: 8px;
+                                    .date_text {
+                                        font-size: 12px;
+                                    }
+                                }
+                                .title_area {
+                                    .title_text {
+                                        font-size: 16px;
+                                    }
+                                }
+                            }
+                        }
+                        //    layout_area end
+                    }
+                }
+                .right_area {
+                    gap: 10px;
+                    display: grid;
+                    @include xs(){
+                        display: flex;
+                        flex-direction: column;
+                    }
+                    .item {
+                        display: block;
+                        // border: 2px solid red;
+                        width: 100%;
+                        height: 100%;
+
+                    }
+                }
+            }
+            .item {
+                border: $border;
+                width: 425px;
+                height: 240px;
+                position: relative;
+                overflow: hidden;
+                @include xs(){
+                    width: 100%;
+                    height: 100%;
+                }
+                &:hover {
+                    img {
+                        scale: 1.1;
+                    }
+                }
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition-duration: 0.4s;
+                }
+
+                //    layout_area start
+                .layout_area {
+                    border: $border;
+                    position: absolute;
+                    bottom: 0px;
+                    left: 0px;
+                    background-color: #000000b0;
+                    width: 100%;
+                    padding: 0px 20px;
+
+                    // padding: 10px;
+                    .item_date_and_title_area {
+                        border: $border;
+                        border-left: 1px solid $brand_color;
+                        padding: 10px 10px;
+                        .date_area {
+                            border: $border;
+                            margin-bottom: 5px;
+                            .date_text {
+                                border: $border;
+                                color: $brand_color;
+                                font-family: $font_bangla;
+                                font-size: 10px;
+                            }
+                        }
+                        .title_area {
+                            border: $border;
+                            .title_text {
+                                border: $border;
+                                color: $brand_color;
+                                font-family: $font_bangla;
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+                //    layout_area end
+            }
+            .bottom_item_area {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin-top: 10px;
+            }
+        }
+        // news_item-all end
+    }
+}
+// news-area end

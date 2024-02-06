@@ -1,0 +1,37 @@
+// book_review_area start
+ .book_review_area{
+    border: $border;
+    position: relative;
+    @include xs(){
+        margin: 0px 40px 0px 40px;
+    }
+    &::after {
+        content: "";
+        width: 50%;
+        height: 30%;
+        background-image: url(../images/bg_dote_image/bg_dote.png);
+        position: absolute;
+        bottom: -60px;
+        right: 34px;
+    }
+   
+     .book_review_area_content{
+        border: $border;
+        position: relative;
+        z-index: 1;
+    
+        // book_card_area_all start
+        .book_card_area_all{
+            border: $border;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            margin: 80px 0px 40px 0px;
+            @include xs(){
+                margin: 40px 0px 20px 0px;
+            }
+        }
+        // book_card_area_all end
+     }
+ }
+// book_review_area end

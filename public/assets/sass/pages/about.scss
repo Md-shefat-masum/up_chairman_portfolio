@@ -1,0 +1,189 @@
+// about_area start
+.about_area {
+    border: $border;
+    margin-top: 80px;
+    position: relative;
+    @include xs(){
+        margin-top: 20px;
+    }
+    &::before {
+        content: "";
+        width: 55%;
+        height: 40%;
+        background-image: url(../images/bg_dote_image/bg_dote.png);
+        position: absolute;
+        top: -40px;
+        left: 20px;
+    }
+    .about_area_content {
+        border: $border;
+        position: relative;
+        .title-area {
+            border: $border;
+            margin: 40px 0px 30px 0px;
+            @include xs(){
+                margin: 14px 0px 20px 0px;
+            }
+            .title-area_text {
+                border: $border;
+                font-family: $font_bangla;
+                font-size: 30px;
+                color: $brand_color;
+                font-weight: bold;
+                @include xs(){
+                    font-size: 18px;
+                }
+            }
+        }
+        .item_description_area {
+            border: $border;
+            gap: 25px;
+            display: grid;
+            @include xs(){
+                gap: 15px;
+            }
+            .description_text {
+                border: $border;
+                font-family: $font_bangla;
+                font-size: 18px;
+                color: $deep_black;
+            }
+        }
+        // personsl_info_area start
+        .personsl_info_area {
+            border: $border;
+            padding: 0px 370px;
+            margin: 80px 0px;
+
+            .personsl_info_title {
+                border: $border;
+                text-align: center;
+                margin-bottom: 40px;
+                .title_text {
+                    border: $border;
+                    font-family: $font_bangla;
+                    color: $brand_color;
+                    font-size: 24px;
+                    font-weight: bold;
+                }
+            }
+            // personsl_info_content start
+            .personsl_info_content {
+                border: $border;
+                display: flex;
+                justify-content: space-between;
+                .all_content {
+                    border: $border;
+                    ul {
+                        border: $border;
+                        gap: 7px;
+                        display: grid;
+                        li {
+                            border: $border;
+                            .title {
+                                border: $border;
+                                font-family: $font_bangla;
+                                font-size: 16px;
+                                color: $deep_black;
+                                font-weight: bold;
+                            }
+                            .spagee {
+                                border: $border;
+                                font-family: $font_bangla;
+                                font-size: 16px;
+                                color: $deep_black;
+                            }
+                            .details {
+                                border: $border;
+                                font-family: $font_bangla;
+                                font-size: 16px;
+                                color: $brand_color;
+                            }
+                        }
+                    }
+                }
+            }
+            // personsl_info_content end
+        }
+        // personsl_info_area end
+
+        // education_area_and_experience_area start
+        .education_area_and_experience_area {
+            border: $border;
+            .education_and_experience_area {
+                border: $border;
+                // item_title start
+                .item_title {
+                    border: $border;
+                    margin-bottom: 40px;
+                    .item_title_text {
+                        border: $border;
+                        color: $brand_color;
+                        font-size: 24px;
+                        font-weight: bold;
+                    }
+                }
+                // item_title end
+
+                .item_content {
+                    border: $border;
+                    display: flex;
+                    .item_logo {
+                        border: $border;
+                        margin-right: 10px;
+
+                        .item_logo_icon {
+                            border: $border;
+                            i {
+                                border: $border;
+                            }
+                        }
+                    }
+                    .item_content_details {
+                        border: $border;
+                        .year {
+                            border: $border;
+                            .year_text {
+                                border: $border;
+                                font-family: $font_bangla;
+                                font-size: 16px;
+                                color: $deep_black;
+                            }
+                        }
+                        .title {
+                            border: $border;
+                            margin-top: 15px;
+                            .itemm_text {
+                                border: $border;
+                                font-family: $font_bangla;
+                                font-size: 16px;
+                                color: $brand_color;
+                            }
+                        }
+                        .institution_name {
+                            border: $border;
+                            .institution_name_text {
+                                border: $border;
+                                font-family: $font_bangla;
+                                font-size: 16px;
+                                color: $deep_black;
+                            }
+                        }
+                        .discription {
+                            border: $border;
+                            margin-top: 15px;
+                            .discription_text {
+                                border: $border;
+                                font-family: $font_bangla;
+                                font-size: 16px;
+                                color: $light_black;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // education_area_and_experience_area end
+    }
+}
+// about_area end

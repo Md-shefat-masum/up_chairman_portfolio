@@ -1,0 +1,338 @@
+<!-- head area include -->
+<%- include('../../layouts/frontend/head.ejs',{title:'posts'}) %>
+
+<!-- navbar area include -->
+<%- include('../../layouts/frontend/navbar.ejs') %>
+<% 
+                                        
+                                        // Function to convert English digits to Bengali (Bangla) digits
+                                        function englishToBanglaDigits(number) {
+                                            const banglaDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+                                            return number.toString().replace(/\d/g, digit => banglaDigits[digit]);
+                                        }
+
+                                        // Function to convert English month names to Bengali (Bangla) month names
+                                        function getBanglaMonthName(month) {
+                                        const banglaMonths = [
+                                            'জানুয়ারি', 'ফেব্রুয়ারি', 'মার্চ', 'এপ্রিল',
+                                            'মে', 'জুন', 'জুলাই', 'আগস্ট',
+                                            'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর'
+                                        ];
+                                        return banglaMonths[month];
+                                        }
+
+                                        // Function to convert English date string to Bangla (Bengali) date format
+                                        function convertToBanglaDate(englishDateString) {
+                                            const englishDate = new Date(englishDateString);
+                                            const banglaDay = englishToBanglaDigits(englishDate.getDate());
+                                            const banglaMonth = getBanglaMonthName(englishDate.getMonth());
+                                            const banglaYear = englishToBanglaDigits(englishDate.getFullYear());
+                                        
+                                            const banglaDate = `${banglaDay} ${banglaMonth}, ${banglaYear}`;
+                                            const aa = `${banglaDay}`;
+                                            const bb = `${banglaMonth}`;
+                                            const cc = `${banglaYear}`;
+                                            return [banglaDate, aa, bb, cc];
+                                        }
+
+                                        // English date string
+                                        // const englishDateString = post_details.published_date.toISOString().substring(0, 10);
+
+                                        // Convert English date string to Bangla date format
+                                        // const banglaDate = convertToBanglaDate(englishDateString);
+                                        
+                                        %>
+
+    <div class="inner-page_and_side-ber-area">
+        <div class="container">
+            <div class="inner-page_and_side-ber-area_content">
+                <!-- inner_page_area start -->
+                <div class="inner_page_area">
+                    <div class="inner_page_area_content">
+                        <!-- content_title start -->
+                        <div class="content_title_and_description" data-aos="fade-right" data-aos-duration="1000">
+                            <h2 class="title_text"><%= blog?.title %></h2>
+                            <p class="description_text"><%= blog?.short_description %></p>
+                        </div>
+                        <!-- content_title end -->
+
+                        <!-- inner_page_all_content start -->
+                        <div class="inner_page_all_content" data-aos="fade-up" data-aos-duration="1000">
+                            <!-- blog_card start -->
+                            <% blogs.map( (bi)=>{ %>
+                            <a href="/post/<%= bi._id %>" class="blog_card edit_inner_blog_card">
+                                <div class="<%= reqUrl == 'book-review' ? 'book_image' : 'blog_image' %>">
+                                    <img src="/<%- (bi.photo && bi.photo.charAt(0) === '/') ? '' + bi.photo.slice(1) : bi.photo %>" alt="<%= bi.photo_alt %>">
+                                </div>
+                                <!-- overlay_area start -->
+                                <div class="overlay_area">
+                                    
+                                    <div class="blog_title">
+                                        <div class="title_area">
+                                            <h2 class="title_text">
+                                                <%= bi.title %>
+                                            </h2>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- overlay_area end -->
+                            </a>
+                            <!-- blog_card end -->
+                            <% })%>
+                            
+                        </div>
+                        <!-- inner_page_all_content end -->
+
+                       
+                        <!-- pagination_area start -->
+                        <div class="pagination_area" data-aos="fade-up" data-aos-duration="1000">
+                            <div class="pagination_area_content">
+                                <div class="left bn">
+                                    দেখাচ্ছে <span id="start_limit"></span> থেকে <span id="end_limit"></span> টা
+                                    <%= count %> আইটেমের মদ্ধে ।
+                                </div>
+                                <ul class=" pagination_item" id="paginate">
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- pagination-area end -->
+
+                    </div>
+                </div>
+                <!-- inner_page_area end -->
+
+                <!-- side_ber_area start -->
+                <div class="side_ber_area" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="side_ber_area_content">
+
+                        <!-- search_area start -->
+                        <div class="search_area">
+                            <form action="/search/posts">
+                                <input name="searchValue" type="text" placeholder="খুজুন . . .">
+                                <button class="button_area">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                            </form>
+                        </div>
+                        <!-- search_area end -->
+
+                        <!-- categories_area start -->
+                        <div class="categories_area">
+
+                            <!-- side_ber_area_title start -->
+                            <div class="side_ber_area_title">
+                                <h2 class="title_text">ক্যাটেগরীজ</h2>
+                            </div>
+                             <!-- side_ber_area_title end -->
+
+                             <div class="categories_item_alla new_categories_item_all">
+                                <ul>
+                                    <% commonData.blog_category?.map( (cm)=>{ %>
+
+                                        <li>
+                                            <a href="/posts<%= cm.url %>" class="categories_namea new_categories_name">
+                                                <%= cm.title %>
+                                            </a>
+                                        </li>
+
+                                        <% })%>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <!-- categories_area end -->
+
+                        <!-- recently_posted_area start -->
+                        <div class="recently_posted_area">
+
+                            <!-- side_ber_area_title start -->
+                            <div class="side_ber_area_title">
+                                <h2 class="title_text">সম্প্রতি পোস্ট</h2>
+                            </div>
+                            <!-- side_ber_area_title end -->
+
+                            <div class="recently_posted_item_all">
+
+                                <% sblogs.map( (bi)=>{ %>
+
+                                    <!-- posted_item start -->
+                               <a href="/post/<%= bi._id %>" class="posted_item">
+                                   <div class="image_area">
+                                       <img src="/<%- (bi.photo && bi.photo.charAt(0) === '/') ? '' + bi.photo.slice(1) : bi.photo %>" alt="img">
+                                   </div>
+                                   <div class="title_and_dete_area">
+                                       <div class="title_area">
+                                           <p class="title_text">
+                                              <%= bi.title %>
+                                           </p>
+                                       </div>
+                                       <div class="date_area">
+                                           <p class="date_text">
+                                               <%= convertToBanglaDate(bi.published_date.toISOString().substring(0, 10))[0] %>
+                                           </p>
+                                       </div>
+                                   </div>
+                               </a>
+                               <!-- posted_item end -->
+       
+                                   <% })%>
+
+                            </div>
+
+                        </div>
+                        <!-- recently_posted_area end -->
+                      
+
+                        <!-- popular_tag_area start -->
+                        <div class="popular_tag_area">
+
+                            <!-- side_ber_area_title start -->
+                            <div class="side_ber_area_title">
+                                <h2 class="title_text">জনপ্রিয় ট্যাগ</h2>
+                            </div>
+                            <!-- side_ber_area_title end -->
+
+                            <div class="popular_tag_all">
+                                <ul>
+                                    <% commonData.tags?.map( (tag)=>{ %>
+
+                                        <li>
+                                            <a href="#" class="tag_text">
+                                                <%= tag.title %>
+                                            </a>
+                                        </li>
+            
+                                        <% })%>
+                                </ul>
+                            </div>
+
+
+                        </div>
+                        <!-- popular_tag_area end -->
+
+                    </div>
+                </div>
+                <!-- side_ber_area end -->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- scroll_button_area start -->
+    <a href="#scroll_top" class="scroll-button">
+        <span class="icon">
+            <i class="fa-solid fa-angle-up"></i>
+        </span>
+    </a>
+    <!-- scroll_button_area end -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function searchSubmit(event) {
+            event.preventDefault();
+            console.log('comment submit hoyche');
+            let data = event.target.searchValue.value;
+            console.log(data);
+
+            // axios.post('/api/v1/blog-comment/store', {
+                axios.get(`/search/posts?q=${data}`)
+                .then(function (response) {
+                    // console.log(response);
+                })
+                .catch(function (error) {
+                    console.error(error);
+                });
+                event.target.searchValue.value = '';
+            };
+    </script>
+    <script>
+        function createPagination(paginationAmount = 10, dataCount = 0, currentPage = 1) {
+                    const pageCount = Math.ceil(dataCount / paginationAmount); // Calculate the total number of pages
+                    const maxDisplayedPages = 5; // Maximum number of displayed page links
+                    let paginationHTML = '';
+
+                    // Calculate the starting and ending page numbers for the displayed links
+                    let startPage = 1;
+                    let endPage = pageCount;
+
+                    if (pageCount > maxDisplayedPages) {
+                        const middlePage = Math.ceil(maxDisplayedPages / 2);
+                        if (currentPage <= middlePage) {
+                            endPage = maxDisplayedPages;
+                        } else if (currentPage >= pageCount - middlePage + 1) {
+                            startPage = pageCount - maxDisplayedPages + 1;
+                        } else {
+                            startPage = currentPage - middlePage + 1;
+                            endPage = currentPage + middlePage - 1;
+                        }
+                    }
+
+                    // Generate the HTML for the pagination
+                    paginationHTML += `
+                        <li class="page-item ">
+                            <a class="page-link pagination_text " onclick="goToPage(${currentPage - 1})"  href="/dashboard/category?page=${currentPage - 1}" aria-label="Previous">
+                                <span aria-hidden="true">পুর্ববর্তী</span>
+                            </a>
+                        </li>
+                    `;
+
+                    if (startPage > 1) {
+                        paginationHTML += `
+                            <li class="page-item ">
+                                <a class="page-link pagination_number pagination_text" onclick="goToPage(${1})"  href="/dashboard/category?page=1">1</a>
+                            </li>
+                         `;
+                        if (startPage > 2) {
+                            paginationHTML += '<li class="page-item ">... </li>';
+                        }
+                    }
+
+                    document.getElementById("start_limit").innerHTML = (currentPage * paginationAmount) - paginationAmount + 1;
+                    document.getElementById("end_limit").innerHTML = (currentPage * paginationAmount);
+
+                    for (let i = startPage; i <= endPage; i++) {
+                        paginationHTML += `
+                            <li class="page-item ">
+                                <a class="page-link pagination_number pagination_text" onclick="goToPage(${i})"  href="/dashboard/category?page=${i}">${i}</a>
+                            </li>
+                        `;
+                    }
+
+                    if (endPage < pageCount) {
+                        if (endPage < pageCount - 1) {
+                            paginationHTML += '<li class="page-item ">... </li>';
+                        }
+                        paginationHTML += `
+                        <li class="page-item ">
+                            <a class="page-link pagination_number pagination_text" onclick="goToPage(${pageCount})" href="/dashboard/category?page=${pageCount}">${pageCount}</a>
+                        </li>
+                      `;
+                    }
+
+                    paginationHTML += `
+                        <li class="page-item ">
+                            <a class="page-link pagination_text " onclick="goToPage(${currentPage + 1})" href="/dashboard/category?page=${currentPage + 1}" aria-label="Next">
+                                <span aria-hidden="true">পরবর্তী</span>
+                            </a> 
+                        </li>
+                    `;
+
+                    return paginationHTML;
+                }
+                
+                function goToPage(pageNumber) {
+                    // Perform actions to load data for the specified page
+                    console.log(`Loading data for page ${pageNumber}`);
+                    // Add your code here to load the data or perform any other necessary actions
+                    event.preventDefault();
+                    let url = new URL(location.href);
+                    url.searchParams.set("page", pageNumber);
+                    location.href = url.href;
+                }
+
+              
+                document.getElementById("paginate").innerHTML = createPagination(+`<%= limit %>`, +`<%= count %>`, +`<%= page %>`);
+    </script>
+
+    <%- include('../../layouts/frontend/footer.ejs') %>

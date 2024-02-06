@@ -1,0 +1,260 @@
+.table_actions {
+    position: relative;
+    display: inline-block;
+
+    &:hover {
+        ul {
+            right: 100%;
+            transform: translate(0%, -50%) scale(1);
+
+            li {
+                opacity: 1;
+
+                @for $i from 1 through 6 {
+                    &:nth-child(#{$i}) {
+                        margin-left: 0px;
+                    }
+                }
+            }
+        }
+    }
+
+    ul {
+        min-width: 185px;
+        width: min-content;
+        padding: 10px 20px;
+        list-style-type: none;
+        right: 50%;
+        overflow: hidden;
+        transition-duration: .3s;
+        position: absolute;
+        z-index: 99;
+        background-color: white;
+        box-shadow: 0 4px 24px 0 rgb(0 0 0 / 24%);
+        border-radius: 3px;
+        text-align: left;
+        top: 50%;
+        transform: translate(50%, -50%) scale(0);
+
+        .dark & {
+            background-color: var(--black_600);
+        }
+
+        li {
+            margin: 0px 0px;
+            transition-duration: .2s;
+            opacity: 0;
+
+            @for $i from 1 through 6 {
+                &:nth-child(#{$i}) {
+                    margin-left: ($i * 10px);
+                    transition-delay: ($i * .15s);
+                }
+            }
+
+            a {
+                color: var(--black_900);
+                transition-duration: .3s;
+                text-transform: capitalize;
+                padding: .65rem 0;
+                display: flex;
+                gap: 10px;
+                width: 100%;
+
+                .dark & {
+                    color: var(--black_100);
+                }
+
+                &:hover {
+                    // color: $purple;
+                    padding-left: 10px;
+                    background: var(--black_300);
+                    .dark & {
+                        background: var(--black_700);
+                    }
+                }
+
+                &:active {
+                    background-color: #7367F0;
+                    color: #FFF;
+                }
+
+                i {
+                    width: 20px;
+                }
+            }
+        }
+    }
+}
+
+.list_card {
+    margin-bottom: 0;
+    min-width: 100%;
+    padding: 0px 15px 15px;
+
+    .dark & {
+        background-color: var(--black_800);
+    }
+
+    .card-header {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        padding: 15px 25px;
+        background-color: transparent;
+        position: relative;
+        z-index: 99;
+
+        .heading {
+            font-weight: 600;
+            font-size: 20px;
+            letter-spacing: 2px;
+        }
+    }
+
+    .card-body {
+        min-height: 300px;
+        max-height: calc(100vh - 300px);
+        overflow: auto;
+        padding-top: 0;
+        padding-bottom: 0;
+        padding: 0;
+        @extend .custom_scroll;
+        background-color: transparent;
+
+        .table>:not(caption)>*>* {
+            padding: 5px 10px;
+        }
+
+        .table {
+            .dark & {
+                --bs-table-color: unset;
+                --bs-table-bg: unset;
+                --bs-table-hover-color: var(--black_300);
+            }
+        }
+    }
+
+    .card-footer {
+        border-top: 1px solid var(--black_300);
+        .dark & {
+            border-top: 1px solid var(--black_600);
+        }
+        background-color: transparent;
+    }
+
+    thead {
+        position: sticky;
+        top: -1px;
+        left: 0;
+        border-bottom: 0;
+        z-index: 1;
+
+        th,
+        td {
+            text-align: center;
+            vertical-align: middle;
+            border: 1px solid var(--black_200);
+
+            .dark & {
+                background-color: var(--black_700);
+                border: 1px solid var(--black_600);
+            }
+
+            &[aria-label="actions"] {
+                width: 100px;
+            }
+
+            &[aria-label="id"] {
+                width: 90px;
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            &:last-child {
+                td {
+                    .table_actions {
+                        &:hover {
+                            ul {
+                                transform: translate(0, 0) scale(1);
+                                top: unset;
+                                bottom: -15px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &:first-child {
+                td {
+                    .table_actions {
+                        &:hover {
+                            ul {
+                                transform: translate(0, 0) scale(1);
+                                top: 0;
+                                bottom: unset;
+                            }
+                        }
+                    }
+                }
+            }
+
+            td {
+                text-align: center;
+                vertical-align: middle;
+                border: 1px solid var(--black_300);
+
+                .dark & {
+                    border: 1px solid var(--black_700);
+                }
+
+                img {
+                    object-position: top;
+                    border: 1px solid var(--black_400);
+                }
+            }
+        }
+    }
+
+    .show-limit {
+        padding-top: 6px;
+
+        span {
+            padding-left: 4px;
+            padding-right: 4px;
+        }
+
+        select {
+            border-radius: 5px;
+            padding: 2px 4px;
+
+            .dark & {
+                background-color: var(--black_200);
+
+                option {
+                    background-color: var(--black_200);
+                    color: var(--black_800);
+                }
+            }
+        }
+    }
+
+    .form-check-input {
+        border: 1px solid var(--black_400);
+    }
+
+    .custom_form_el{
+        margin-bottom: 30px;
+        display: grid;
+        grid-template-columns: 200px 2px 1fr;
+        gap: 30px;
+    }
+    .desc_part{
+        display: flex;
+        flex-direction: column;
+    }
+}

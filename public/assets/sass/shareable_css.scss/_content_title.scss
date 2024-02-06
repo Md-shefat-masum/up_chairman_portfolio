@@ -1,0 +1,59 @@
+// content_title start
+.content_title_and_description{
+    border: $border;
+    border-bottom: 1px solid $brand_color;
+
+    .title_text{
+        border: $border;
+        font-family: $font_bangla;
+        font-size: 30px;
+        color: $button_black;
+        font-weight: bold;
+        position: relative;
+        padding: 10px 0px 10px 30px;
+        display: inline-block;
+        @include xs(){
+            font-size: 12px;
+            padding: 8px 0px 8px 10px;
+        }
+
+        &::before{
+            content: "";
+            width: 65%;
+            height: 100%;
+            background-color: transparent;
+            border: 4px solid $brand_color;
+            border-right: none;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            @include xs(){
+                content: "";
+            width: 65%;
+            height: 100%;
+            background-color: transparent;
+            border: 2px solid $brand_color;
+            border-right: none;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            }
+           
+
+        }
+    }
+    .description_text{
+        border: $border;
+        width: 40%;
+        font-family: $font_bangla;
+        font-size: 14px;
+        color: $deep_black;
+        padding: 40px 0px 40px 33px;
+        @include xs(){
+            font-size: 12px;
+            padding: 10px 0px 10px 0px;
+            width: 100%;
+        }
+    }
+}
+// content_title end

@@ -1,0 +1,145 @@
+// banner_area start
+.banner_area {
+    border: $border;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    .banner_area_bg_color {
+        border: $border;
+        align-items: center;
+        display: flex;
+        height: 100%;
+
+        background-image: linear-gradient(
+            90deg,
+            rgba(45, 45, 58, 0.9) 15%,
+            rgba(45, 45, 58, 0.7) 50%,
+            rgba(43, 43, 53, 0.7) 100%
+        );
+
+        .banner_area_content {
+            border: $border;
+            display: flex;
+            justify-content: space-between;
+            @include xs{
+                display: block;
+            }
+
+            // left-area start
+            .left-area_content {
+                height: calc(100vh - 175px);
+                align-items: center;
+                display: flex;
+                flex: 1;
+                @include xs{
+                    display: block;
+                    height: 100%;
+                    margin-top: 50px;
+                    padding-bottom: 40px;
+                }
+                .left-area {
+                    border: $border;
+                   
+                    // margin-right: 300px;
+                    align-items: center;
+                    display: flex;
+                    position: relative;
+                    padding: 50px 0px 50px 50px;
+                    @include xs{
+                        padding: 0px;
+                    }
+                    &::after {
+                        content: "";
+                        width: 50%;
+                        height: 100%;
+                        background-color: #00000080;
+                        position: absolute;
+                        top: 0px;
+                        left: 0px;
+                        z-index: 9;
+                        @include xs{
+                            background-color: transparent;
+                        }
+                    }
+                    .left_area_content {
+                        border: $border;
+                        z-index: 99;
+                        .profation_name {
+                            border: $border;
+                            font-size: 28px;
+                            font-family: "bangla-font";
+                            color: $white;
+                            @include xs{
+                                font-size: 12px;
+                            }
+                        }
+                        .name_text {
+                            border: $border;
+                            font-size: 40px;
+                            font-family: $font_bangla;
+                            font-weight: bold;
+                            color: $brand_color;
+                            padding: 30px 0px 50px 0px;
+                            @include xs{
+                                font-size: 16px;
+                                padding: 10px 0px 10px 0px;
+                            }
+                        }
+                        .description_text {
+                            border: $border;
+                            font-size: 18px;
+                            font-family: $font_bangla;
+                            color: $white;
+                            text-align: justify;
+                            margin-bottom: 50px;
+                            @include xs{
+                                font-size: 12px;
+                                margin-bottom: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            // left-area end
+            // right-area start
+            .right-area {
+                border: $border;
+                width: 450px;
+                align-items: end;
+                display: flex;
+                margin-left: 50px;
+                @include xs{
+                    width: unset;
+                    margin-left:unset;
+                    justify-content: center;
+                    display: none;
+                }
+                .image_area {
+                    border: $border;
+                    width: 100%;
+                    @include xs{
+                        width: 200px;
+                        border: 3px solid $white;
+                        border-radius: 50%;
+                        overflow: hidden;
+                    
+                    }
+                    // padding: 15px;
+                    // background-color: $brand_color;
+                    img {
+                        border: $border;
+                        width: 100%;
+                        // height: 100%;
+                        // object-fit: cover;
+                    }
+                }
+            }
+            // right-area end
+        }
+    }
+}
+// banner_area end
+
+

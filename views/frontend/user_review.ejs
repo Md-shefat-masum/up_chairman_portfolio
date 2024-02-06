@@ -1,0 +1,100 @@
+<!-- head area include -->
+<%- include('../layouts/frontend/head.ejs',{title:'user-review'}) %>
+
+    <!-- navbar area include -->
+    <%- include('../layouts/frontend/navbar.ejs') %>
+
+        <div class="contact_page">
+            <div class="container">
+                <div class="contact_page_content">
+
+                    <!-- content_title start -->
+                    <div class="content_title_and_description" data-aos="fade-right" data-aos-duration="1000">
+                        <h2 class="title_text">আপনার মতামত</h2>
+                        <p class="description_text">নাজাত লাভ, জান্নাত অর্জন, খোদার সন্তুষ্টি এবং ধনসম্পদেও
+                            বরকতের
+                            মাধ্যম।
+                            সততা মানব চরিত্রের শ্রেষ্ঠ গুণ। </p>
+                    </div>
+                    <!-- content_title end -->
+
+                    <!-- content_left_and_right_area start -->
+                    <div class="content_left_and_right_area d-flex align-items-center justify-content-center">
+                            <!-- contact_area_right start -->
+                            <div class="col-md-8 ">
+                                <div class="contact_area_right" data-aos="fade-left" data-aos-duration="1000">
+                                    <form onsubmit="messageSubmit(event)">
+                                        <div class="rirst_name_and_second_name_area form_item">
+                                            <div class="first_name_area">
+                                                <label>পুরো নাম</label>
+                                                <input type="text" placeholder="পুরো নাম" name="title" required>
+                                            </div>
+                                            <div class=" second_name_area">
+                                                <label>রেটিংস</label>
+                                                <input type="text" placeholder="রেটিংস" name="ratings" required>
+                                            </div>
+                                        </div>
+                                        <div class="email_area form_item">
+                                            <label>সাব টাইটেল</label>
+                                            <input type="text" placeholder="সাব টাইটেল" name="sub_title" required>
+                                        </div>
+                                        <div class="message_area form_item">
+                                            <label>আপনার মতামত লিখুন</label>
+                                            <textarea cols="" rows="" name="description"
+                                                placeholder="আপনার লেখা লিখুন . . .">
+                                            </textarea>
+                                        </div>
+                                        <button class="submit_button"><i class="fa-regular fa-paper-plane"></i> সাবমিট
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- contact_area_right end -->
+                       
+                    </div>
+                    <!-- content_left_and_right_area end -->
+
+                </div>
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+            <script>
+                function messageSubmit(event) {
+                    event.preventDefault();
+                    console.log('comment submit hoyche');
+                    let title = event.target.title.value;
+                    let ratings = event.target.ratings.value;
+                    let sub_title = event.target.sub_title.value;
+                    let description = event.target.description.value;
+                    console.log(title, ratings, sub_title, description);
+
+                    event.target.title.value = '';
+                    event.target.ratings.value = '';
+                    event.target.sub_title.value = '';
+                    event.target.description.value = '';
+                    // axios.post('/api/v1/blog-comment/store', {
+                    axios.post('/save/user-review', {
+
+                        title: title,
+                        ratings: ratings,
+                        sub_title: sub_title,
+                        description: description,
+                    })
+                        .then(function (response) {
+                            // console.log(response);
+                        })
+                        .catch(function (error) {
+                            console.error(error);
+                        });
+                };
+            </script>
+        </div>
+
+
+        <!-- scroll_button_area start -->
+        <a href="#scroll_top" class="scroll-button">
+            <span class="icon">
+                <i class="fa-solid fa-angle-up"></i>
+            </span>
+        </a>
+        <!-- scroll_button_area end -->
+        <%- include('../layouts/frontend/footer.ejs') %>

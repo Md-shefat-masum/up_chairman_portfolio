@@ -1,0 +1,27 @@
+$extra_colors: (
+    "1": #dc8a73,
+    "2": #707176,
+    "3": #769e85,
+    "4": #baaa89,
+    "5": #699d92,
+    "6": #ecae74,
+    "7": #d78965,
+    "8": #2b917b,
+    "9": #3d6fba,
+    "10": #53666c,
+    "11": #5a94b0,
+);
+
+@each $no,
+$color in $extra_colors {
+    .color_#{$no} {
+        color: $color;
+    }
+}
+
+@each $no,
+$color in $extra_colors {
+    .bg_color_#{$no} {
+        background-color: $color;
+    }
+}

@@ -1,0 +1,90 @@
+// blog_card start
+.blog_card{
+    border: $border;
+    width: 320px;
+    height: 360px;
+    position: relative;
+    overflow: hidden;
+    @include xs(){
+        width: 100%;
+        height: 100%;
+        max-height: 150px;
+    }
+    &:hover{
+        .blog_image{
+            img{
+                scale: 1.1;
+            }
+        }
+        .book_image{
+            img{
+                scale: 1.1;
+            }
+        }
+    }
+    .blog_image{
+        border: $border;
+        width: 100%;
+        height: 100%;
+        @include xs(){
+            // min-height: 140px;
+            max-height: 160px;
+        }
+        img{
+            border: $border;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition-duration: .4s;
+           
+        }
+    }
+    .book_image{
+        border: $border;
+        width: 100%;
+        height: 100%;
+        @include xs(){
+            height: 50%;
+        }
+        
+        img{
+            border: $border;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition-duration: .4s;
+            @include xs(){
+                // object-fit: cover;
+                
+            }
+        }
+    }
+    .overlay_area{
+        border: $border;
+        background-color: #000000b0;
+        position: absolute;
+        bottom: 0px;
+        padding: 10px 15px;
+        width: 100%;
+        .blog_title{
+            border: $border;
+            .title_area{
+                border: $border;
+                border-left: 1px solid $white;
+                padding-left: 15px;
+                .title_text{
+                    border: $border;
+                    font-family: $font_bangla;
+                    font-size: 14px;
+                    color: $white;
+                    // font-weight: bold;
+                    padding: 10px 0px;
+                    @include xs(){
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+// blog_card end

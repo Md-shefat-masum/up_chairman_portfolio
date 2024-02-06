@@ -1,0 +1,51 @@
+.dashboard_analytics {
+
+    /* Card Container */
+    .card {
+        background-color: transparent;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+
+    /* Card Title */
+    .card h2 {
+        font-size: 1.5rem;
+        margin: 0;
+        margin-bottom: 20px;
+    }
+
+    /* Analytics Data */
+    .analytics {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        align-content: flex-start;
+    }
+
+    .analytics-item {
+        text-align: center;
+        width: 300px;
+        border: 1px solid white;
+        border-radius: 5px;
+        min-height: 113px;
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        gap: 10px;
+    }
+
+    .analytics-item h3 {
+        font-size: 20px;
+        margin: 0;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .analytics-item p {
+        font-size: 26px;
+        margin: 0;
+    }
+}

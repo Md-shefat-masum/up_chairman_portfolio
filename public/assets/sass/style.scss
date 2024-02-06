@@ -1,0 +1,52 @@
+@import "./abstracts/variables";
+@import "./abstracts/mixins";
+@import "./core/typography";
+@import "./core/reset";
+@import "./core/root";
+@import "./vendors/grid";
+@import "./layouts/navigation";
+@import "./layouts/footer";
+@import "./shareable_css.scss/button_area";
+@import "./shareable_css.scss/content_title";
+@import "./shareable_css.scss/box_content_area";
+@import "./shareable_css.scss/social_work_image_card";
+@import "./shareable_css.scss/book_card";
+@import "./shareable_css.scss/text_slider_area";
+@import "./shareable_css.scss/blog_card";
+@import "./shareable_css.scss/photo_card";
+@import "./shareable_css.scss/video_card";
+
+@import "./shareable_css.scss/inner_page";
+@import "./shareable_css.scss/side_ber_area";
+@import "./shareable_css.scss/pagination_area";
+@import "./shareable_css.scss/inner_page_details";
+@import "./shareable_css.scss/comment_area";
+@import "./shareable_css.scss/scroll-button";
+@import "./shareable_css.scss/custom.scss";
+
+// page_import_start
+
+@import "./pages/index.scss";
+@import "./pages/about.scss";
+@import "./pages/contact.scss";
+// page_import_end
+
+// all area main class start (For Responsive)
+// .navigation_area,
+// .banner_area,
+// .news-area,
+// .social_work_area,
+// .count_area,
+// .book_review_area,
+// .union_porishad_area,
+// .text_slider_area,
+// .blog_area,
+// .scroll-button,
+// .footer_area,
+// .side_ber_area,
+// .pagination_area,
+.gallery_side_bar_area
+{
+display: none;
+}
+// all area main class end

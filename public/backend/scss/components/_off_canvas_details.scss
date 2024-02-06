@@ -1,0 +1,108 @@
+table,
+.table,
+.table>:not(caption)>*>*,
+table thead {
+    --bs-table-bg: transparent;
+}
+
+table thead {
+    background-color: var(--black_600);
+}
+
+table th,
+table tr,
+table td {
+    border: 1px solid var(--black_700);
+
+    .dark & {
+        color: var(--black_200);
+    }
+}
+
+.canvas_backdrop {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    background-color: rgba(0, 0, 0, .5);
+    backdrop-filter: blur(5px);
+    z-index: 99999;
+    right: -200vh;
+    visibility: hidden;
+    transition-duration: .2s;
+
+    &.active {
+        right: 0;
+        visibility: visible;
+    }
+
+    .content {
+        height: 100vh;
+        min-width: 320px;
+        background-color: var(--black_700);
+        padding: 20px;
+
+        @media (min-width: 768px) {
+            min-width: 450px;
+            max-width: 50vw;
+        }
+
+        &.right {
+            float: right;
+        }
+
+        .content_header {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            align-items: center;
+            border-bottom: 1px solid #585656;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+
+            .offcanvas-title {
+                text-transform: capitalize;
+            }
+
+            i {
+                cursor: pointer;
+            }
+        }
+
+        .cotent_body {
+            padding: 20px 0px;
+            padding-top: 0;
+            max-height: calc(100vh - 95px);
+            overflow-y: auto;
+            @extend .custom_scroll;
+
+            table {
+                --bs-table-bg: transparent;
+
+                thead {
+                    position: sticky;
+                    top: 0;
+                    left: 0;
+                }
+
+                tr {
+
+                    th,
+                    td {
+                        color: var(--black_200);
+                        vertical-align: top;
+
+                        &:nth-child(1) {
+                            width: 150px;
+                            text-transform: capitalize;
+                        }
+
+                        &:nth-child(2) {
+                            width: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

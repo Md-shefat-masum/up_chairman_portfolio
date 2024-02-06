@@ -1,0 +1,42 @@
+<%- include('./layouts/header', {
+    title: 'blog: home page'
+}) %>
+
+    <section>
+        <div class="container py-5">
+            <h2 class="text-center mb-4">blog list</h2>
+            <div class="row">
+                <% for( let index=0; index < 9; index++ ) { %>
+                    <div class="col-md-4">
+                        <div class="card mb-3" style="max-width: 540px;">
+                            <div class="row g-0">
+                                <div class="col-md-12">
+                                    <img src="/images/3.jpg" class="img-fluid rounded-1" alt="...">
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">
+                                            This is a wider card with supporting text below as a natural
+                                            lead-in to additional content. This content is a little bit longer.
+                                        </p>
+                                        <p class="card-text">
+                                            <small class="text-body-secondary">
+                                                Last updated 3 mins
+                                                ago
+                                            </small>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+
+            </div>
+        </div>
+    </section>
+
+
+
+<%- include('./layouts/footer') %>

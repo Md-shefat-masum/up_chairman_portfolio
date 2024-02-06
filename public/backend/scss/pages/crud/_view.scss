@@ -1,0 +1,30 @@
+.details{
+    height: 100%;
+    overflow: auto;
+    padding-right: 10px;
+}
+
+.details_table{
+    max-width: 768px;
+    margin: 0 auto;
+    tr{
+        border-top: 1px solid var(--brand_color2);
+        &:last-child{
+            border-bottom: 1px solid var(--brand_color2);
+        }
+        td,th{
+            color: var(--brand_white);
+            padding: 15px 20px;
+            font-size: 14px;
+            vertical-align: middle;
+            &:nth-child(1){
+                text-transform: capitalize;
+            }
+            &:nth-child(2){
+                width: 3px;
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+.btn {
+    border: 1px solid var(--black_500);
+    background: transparent;
+    padding: 6px 15px;
+    text-transform: uppercase;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    i{
+        font-size: 16px;
+    }
+}

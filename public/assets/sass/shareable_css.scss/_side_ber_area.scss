@@ -1,0 +1,251 @@
+// side_ber_area_title start
+.side_ber_area_title {
+    border: $border;
+    border-bottom: 1px solid $border_black;
+    .title_text {
+        border: $border;
+        font-family: $font_bangla;
+        font-size: 18px;
+        font-weight: bold;
+        color: $brand_color;
+        margin-bottom: 15px;
+        @include xs(){
+            font-size: 14px;
+        }
+    }
+}
+// side_ber_area_title end
+
+// side_ber_area start
+.side_ber_area {
+    border: $border;
+    width: 330px;
+    background-color: $white;
+    padding: 40px 20px;
+    border: 1px solid $brand_color;
+    border: 1px solid $brand_transfarent_color;
+    position: relative;
+    @include xs(){
+        width: 100%;
+        padding: 20px 20px;
+        margin-top: 10px;
+    }
+    &::before {
+        content: "";
+        width: 40%;
+        height: 50%;
+        background-image: url(../images/bg_dote_image/bg_dote.png);
+        position: absolute;
+        top: 20px;
+        right:20px;
+    }
+    .side_ber_area_content {
+        border: $border;
+        z-index: 1;
+        position: relative;
+        // search_area start
+        .search_area {
+            border: $border;
+            form {
+                border: $border;
+                position: relative;
+                input {
+                    border: $border;
+                    font-family: $font_bangla;
+                    font-size: 14px;
+                    color: $black;
+                    color: $brand_color;
+                    outline: 0;
+                    background-color: $off_white;
+                    width: 100%;
+                    padding: 10px 65px 10px 10px;
+                    border: 1px solid $brand_transfarent_color;
+                    @include xs(){
+                        font-size: 10px;
+                        padding: 8px 15px 8px 8px;
+                    }
+                }
+                .button_area {
+                    border: $border;
+                    position: absolute;
+                    right: 0px;
+                    top: 0px;
+                    height: 100%;
+                    width: 55px;
+                    align-items: center;
+                    display: flex;
+                    justify-content: center;
+                    background-color: $brand_color;
+                    i {
+                        border: $border;
+                        font-size: 10px;
+                        color: $white;
+                    }
+                }
+            }
+        }
+        // search_area end
+
+        // categories_area start
+        .categories_area {
+            border: $border;
+            margin: 30px 0px;
+            .side_ber_area_title{
+                .title_text{
+                    @include xs(){
+                        font-size: 14px;
+                    }
+                }
+            }
+            .categories_item_all {
+                border: $border;
+                margin-top: 15px;
+
+                ul {
+                    border: $border;
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 5px;
+
+                    li {
+                        border: $border;
+                        .categories_name {
+                            border: $border;
+                            font-family: $font_bangla;
+                            font-size: 14px;
+                            // font-weight: bold;
+                            color: $white;
+                            // color: $brand_color;
+                            transition-duration: 0.4s;
+                            padding: 5px 10px;
+                            border: 1px solid $brand_color;
+                            background-color: $brand_color;
+                            transition-duration: 0.4s;
+                            @include xs(){
+                                font-size: 12px;
+                            }
+                            &:hover {
+                                color: $brand_color;
+                                background-color: transparent;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // categories_area end
+
+        // recently_posted_area start
+        .recently_posted_area {
+            border: $border;
+            margin-bottom: 30px;
+
+            .recently_posted_item_all {
+                border: $border;
+                gap: 15px;
+                display: grid;
+                margin-top: 20px;
+                .posted_item {
+                    border: $border;
+                    display: flex;
+
+                    &:hover {
+                        .image_area {
+                            img {
+                                scale: 1.1;
+                            }
+                        }
+                    }
+                    .image_area {
+                        border: $border;
+                        width: 80px;
+                        height: 50px;
+                        margin-right: 10px;
+                        overflow: hidden;
+                        img {
+                            border: $border;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            transition-duration: 0.4s;
+                        }
+                    }
+                    .title_and_dete_area {
+                        border: $border;
+                        flex: 1;
+                        .title_area {
+                            border: $border;
+                            margin-bottom: 5px;
+                            .title_text {
+                                border: $border;
+                                font-family: $font_bangla;
+                                font-size: 14px;
+                                color: $deep_black;
+                                color: $brand_color;
+                                font-weight: bold;
+                                @include xs(){
+                                    font-size: 10px;
+                                }
+                            }
+                        }
+                        .date_area {
+                            border: $border;
+                            .date_text {
+                                border: $border;
+                                font-family: $font_bangla;
+                                font-size: 11px;
+                                color: $light_black;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // recently_posted_area end
+
+        // popular_tag_area start
+        .popular_tag_area {
+            border: $border;
+            .side_ber_area_title{
+                .title_text{
+                    @include xs(){
+                        font-size: 14px;
+                    }
+                }
+            }
+            .popular_tag_all {
+                border: $border;
+                margin-top: 15px;
+
+                ul {
+                    border: $border;
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 5px;
+                    li {
+                        border: $border;
+                        .tag_text {
+                            border: $border;
+                            font-family: $font_bangla;
+                            font-size: 14px;
+                            color: $white;
+                            padding: 5px 10px;
+                            background-color: $brand_color;
+                            border: 1px solid $brand_color;
+                            transition-duration: 0.4s;
+                            @include xs(){
+                                font-size: 12px;
+                            }
+                            &:hover {
+                                background-color: transparent;
+                                color: $brand_color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // popular_tag_area end
+    }
+}
+// side_ber_area end

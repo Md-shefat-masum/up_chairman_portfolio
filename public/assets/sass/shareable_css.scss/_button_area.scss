@@ -1,0 +1,153 @@
+// button_area start
+.button_area {
+    border: $border;
+    .button_text_area {
+        border: $border;
+        background-color: $brand_color;
+        padding: 0px;
+        &:hover {
+            .button_text {
+                .dash_icon {
+                    &::after {
+                        width: 60px;
+                        @include xs{
+                            width: 30px;
+                        }
+                    }
+                }
+            }
+        }
+        .button_text {
+            border: $border;
+
+            color: $white;
+            font-size: 14px;
+            font-family: $font_bangla;
+            padding: 13px 80px 13px 20px;
+            @include xs{
+                padding: 8px 40px 8px 10px;
+                font-size: 10px;
+            }
+            .dash_icon {
+                border: $border;
+                position: relative;
+                margin-left: 7px;
+
+                &::after {
+                    content: "";
+                    width: 30px;
+                    height: 2px;
+                    background-color: white;
+                    position: absolute;
+                    top: -4px;
+                    left: 0px;
+                    transition-duration: 0.4s;
+                    @include xs{
+                        width: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+// button_area end
+
+
+.black_button_area {
+    border: $border;
+    .button_text_area {
+        border: $border;
+        background-color: $brand_color;
+        padding: 0px;
+        transition-duration: 0.4s;
+        &:hover {
+            background-color: $button_black;
+            .button_text {
+                .dash_icon {
+                    &::after {
+                        width: 60px;
+                        @include xs{
+                            width: 30px;
+                        }
+                    }
+                }
+            }
+        }
+        .button_text {
+            border: $border;
+
+            color: $white;
+            font-size: 14px;
+            font-family: $font_bangla;
+            padding: 13px 80px 13px 20px;
+            @include xs{
+                padding: 8px 40px 8px 10px;
+            }
+            .dash_icon {
+                border: $border;
+                position: relative;
+                margin-left: 7px;
+
+                &::after {
+                    content: "";
+                    width: 30px;
+                    height: 2px;
+                    background-color: white;
+                    position: absolute;
+                    top: -4px;
+                    left: 0px;
+                    transition-duration: 0.4s;
+                    @include xs{
+                        width: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+// button_area end
+
+// white button_area start
+// .white_button_area {
+//     border: $border;
+//     .button_text_area {
+//         border: $border;
+//         background-color: $white;
+//         padding: 0px;
+//         &:hover {
+//             .button_text {
+//                 .dash_icon {
+//                     &::after {
+//                         width: 60px;
+//                     }
+//                 }
+//             }
+//         }
+//         .button_text {
+//             border: $border;
+
+//             color: $brand_color;
+//             font-size: 14px;
+//             font-family: $font_bangla;
+//             padding: 13px 80px 13px 20px;
+
+//             .dash_icon {
+//                 border: $border;
+//                 position: relative;
+//                 margin-left: 7px;
+
+//                 &::after {
+//                     content: "";
+//                     width: 30px;
+//                     height: 2px;
+//                     background-color: $brand_color;
+//                     position: absolute;
+//                     top: -4px;
+//                     left: 0px;
+//                     transition-duration: 0.4s;
+//                 }
+//             }
+//         }
+//     }
+// }
+// white button_area end

@@ -1,0 +1,33 @@
+// blog_area start
+.blog_area {
+    border: $border;
+    background-color: $white;
+    margin: 0px 40px;
+    padding: 80px 0px;
+    position: relative;
+    &::after {
+        content: "";
+        width: 50%;
+        height: 30%;
+        background-image: url(../images/bg_dote_image/bg_dote.png);
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+    }
+    .blog_area_content {
+        border: $border;
+        position: relative;
+        z-index: 1;
+    
+        // all_blog_card start
+        .all_blog_card {
+            border: $border;
+            margin: 80px 0px 40px 0px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        // all_blog_card end
+    }
+}
+// blog_area end

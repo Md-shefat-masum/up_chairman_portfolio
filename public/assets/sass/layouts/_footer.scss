@@ -1,0 +1,314 @@
+// footer_area start
+.footer_area {
+    border: $border;
+    background-color: $white;
+    background-color: $brand_color;
+    margin-top: 80px;
+    position: relative;
+    @include xs(){
+        margin-top: 20px;
+    }
+    &::after {
+        content: "";
+        width: 40%;
+        height: 30%;
+        background-image: url(../images/bg_dote_image/bg_dote.png);
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+     display: none;
+    }
+    &::before {
+        content: "";
+        width: 40%;
+        height: 55%;
+        background-image: url(../images/bg_dote_image/bg_dote.png);
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        
+    }
+    .footer_area_content {
+        border: $border;
+        z-index: 1;
+        position: relative;
+    
+        // fotter_area_logo_and_menu start
+        .fotter_area_logo_and_menu {
+            border: $border;
+            display: flex;
+            justify-content: space-between;
+            height: 100px;
+            align-items: center;
+            @include xs(){
+                height: 100%;
+                padding: 10px 0px;
+            }
+            .logo_area {
+                border: $border;
+                width: 120px;
+                align-items: center;
+                display: flex;
+                @include xs(){
+                    width: 45px;
+                }
+                img {
+                    border: $border;
+                    width: 100%;
+                    object-fit: contain;
+                }
+            }
+            .menu_area {
+                border: $border;
+                align-items: center;
+                display: flex;
+
+                ul {
+                    border: $border;
+                    display: flex;
+                    gap: 20px;
+                    @include xs(){
+                        display: none;
+                    }
+                    li {
+                        border: $border;
+                        align-items: center;
+                        display: flex;
+                        .menu_text {
+                            border: $border;
+                            font-family: $font_bangla;
+                            font-size: 14px;
+                            font-weight: bold;
+                            color: $white;
+                            transition-duration: 0.4s;
+                            &:hover {
+                                color: $black;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // fotter_area_logo_and_menu end
+
+        // footer_inner_area start
+        .footer_inner_area {
+            border: $border;
+            background-color: $blue_white;
+            background-color: $white;
+            padding: 50px;
+            @include xs(){
+                padding: 10px;
+            }
+
+            .footer_area_content {
+                border: $border;
+                
+                // importent_link_area start
+                .area_title {
+                    border: $border;
+                    margin-bottom: 35px;
+                    @include xs {
+                        margin-top: 10px;
+                        margin-bottom: 10px;
+                    }
+                    @include sm {
+                        margin-top: 40px;
+                    }
+                    @include md {
+                        margin-top: 40px;
+                    }
+                    .area_title_text {
+                        border: $border;
+                        color: $black;
+                        color: $brand_color;
+                        font-family: $font_bangla;
+                        font-size: 20px;
+                        font-weight: bold;
+                        @include xs(){
+                            font-size: 14px;
+                        }
+                    }
+                }
+                .importent_link_area {
+                    border: $border;
+                    ul {
+                        border: $border;
+                        gap: 20px;
+                        display: grid;
+                        @include xs(){
+                            gap: 5px;
+                        }
+                        li {
+                            border: $border;
+                            a {
+                                border: $border;
+                                font-size: 16px;
+                                font-family: $font_bangla;
+                                color: $light_black;
+                                transition-duration: 0.4s;
+                                @include xs(){
+                                    font-size: 14px;
+                                }
+                                &:hover {
+                                    color: $brand_color;
+                                }
+                            }
+                        }
+                    }
+                }
+                // importent_link_area end
+
+                // contact area start
+                .contact_area {
+                    border: $border;
+                    // adddress_area start
+                    .adddress_area {
+                        border: $border;
+                        .adddress_text {
+                            border: $border;
+                            font-size: 16px;
+                            font-family: $font_bangla;
+                            color: $light_black;
+                            @include xs(){
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                    // adddress_area end
+                    // phone_title_and_number area start
+                    .title_and_content {
+                        border: $border;
+                        display: flex;
+                        @include xs(){
+                            align-items: start;
+                        }
+
+                        .f_title_area {
+                            border: $border;
+                            .title_text {
+                                border: $border;
+                                font-size: 18px;
+                                width: 80px;
+                                font-family: $font_bangla;
+                                color: $light_black;
+                                @include xs(){
+                                    width: 50px;
+                                    font-size: 12px;
+                                }
+                            }
+                        }
+                        .f_content_area {
+                            border: $border;
+                            @include xs(){
+                                margin-top: -5px;
+                            }
+                            .content_text {
+                                border: $border;
+                                font-size: 18px;
+                                font-family: $font_bangla;
+                                color: $light_black;
+                                margin-left: 12px;
+                                transition-duration: 0.4s;
+                                @include xs(){
+                                    font-size: 14px;
+                                   
+                                }
+                                &:hover {
+                                    color: $brand_color;
+                                }
+                            }
+                            .f_c_number {
+                                display: block;
+                            }
+                            .email_text {
+                            }
+                        }
+                        .phone_number {
+                            gap: 10px;
+                            display: grid;
+                        }
+                    }
+                    .phone_title_and_number {
+                        margin: 20px 0px;
+                    }
+                    // phone_title_and_number area end
+                }
+                // contact area end
+                // map area start
+                iframe {
+                    width: 100%;
+                    height: 200px;
+                }
+                // map area end
+            }
+        }
+        // footer_inner_area end
+
+        // copy-write_and_social-media_area start
+        .copy-write_and_social-media_area {
+            border: $border;
+            display: flex;
+            justify-content: space-between;
+            height: 100px;
+            align-items: center;
+            @include xs(){
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+            }
+            .copy-write_area {
+                border: $border;
+                align-items: center;
+                display: flex;
+
+                .copy-write_text {
+                    border: $border;
+                    font-family: $font_bangla;
+                    font-size: 14px;
+                    // font-weight: bold;
+                    color: $black;
+                    color: $white;
+                    @include xs(){
+                        text-align: center;
+                    }
+                    .text {
+                        border: $border;
+                        color: $black;
+                        transition-duration: 0.4s;
+                        &:hover {
+                            color: $white;
+                        }
+                    }
+                }
+            }
+            .social-media_area {
+                border: $border;
+                ul {
+                    border: $border;
+                    display: flex;
+                    gap: 25px;
+                    li {
+                        border: $border;
+                        .social-media_icon {
+                            border: $border;
+                            &:hover {
+                                i {
+                                    color: $black;
+                                }
+                            }
+                            i {
+                                border: $border;
+                                font-size: 18px;
+                                color: $white;
+                                transition-duration: 0.4s;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // copy-write_and_social-media_area end
+    }
+}
+// footer_area end

@@ -1,0 +1,36 @@
+.custom_scroll {
+    overflow: auto;
+    /* width */
+    &:hover{
+        &::-webkit-scrollbar {
+            width: 7px;
+        }
+    }
+    &::-webkit-scrollbar {
+        width: 0px;
+        height: 10px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: var(--black_200);
+        .dark &{
+            background: var(--black_400);
+        }
+        border-radius: 25px;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: var(--black_400);
+        .dark &{
+            background: var(--black_700);
+        }
+        border-radius: 25px;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background: var(--black_600);
+    }
+}

@@ -1,0 +1,71 @@
+// pagination_area start
+.pagination_area {
+    border: $border;
+    border-top: 1px solid $brand_color;
+    padding-top: 40px;
+    @include xs(){
+        padding-top: 20px;
+    }
+    .pagination_area_content {
+        border: $border;
+        .left{
+            font-size: 12px;
+        }
+        ul {
+            border: $border;
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            align-items: center;
+            margin-top: 18px;
+            @include xs(){
+                margin-top: 6px;
+            }
+            li {
+                border: $border;
+                
+                .pagination_text {
+                    border: $border;
+                    font-family: $font_bangla;
+                    font-size: 14px;
+                    color: $white;
+                    background-color: $brand_color;
+                    width: 70px;
+                    height: 35px;
+                    align-items: center;
+                    display: flex;
+                    justify-content: center;
+                    border: 1px solid $brand_color;
+                    transition-duration: .4s;
+                    padding: 20px 5px;
+                    @include xs(){
+                        width: 30px;
+                        height: 20px;
+                        font-size: 10px;
+                        padding: 18px 5px;
+                    }
+                    &:hover{
+                        color: $brand_color;
+                        background: transparent;
+                    }
+                }
+                .pagination_number{
+                    padding: 12px 5px;
+                    @include xs(){
+                        padding: 2px 2px;
+                    }
+                }
+                span{
+                    margin: 0px;
+                    padding: 10px 5px;
+                }
+                .pagination_number {
+                    width: 30px;
+                    height: 30px;
+                    
+                }
+            }
+        }
+    }
+}
+// pagination_area end

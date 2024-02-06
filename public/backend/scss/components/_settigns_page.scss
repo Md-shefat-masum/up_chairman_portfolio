@@ -1,0 +1,75 @@
+.setting_pages_body {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 10px;
+
+    .left_setting_nav {
+        height: calc(100vh - 155px);
+        overflow-y: auto;
+
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+
+            li {
+                margin-bottom: 10px;
+
+                a {
+                    display: block;
+                    color: var(--white);
+                    font-weight: 600;
+                    text-transform: capitalize;
+                    padding: 10px 15px;
+
+                    i {
+                        padding-right: 5px;
+                        width: 30px;
+                    }
+
+                    &:hover {
+                        background-color: rgba(67, 89, 113, 0.3);
+                    }
+
+                    &.active.router-link-active {
+                        background-color: #161D31 !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .right_settings_outlet {}
+
+    .form_area {
+        height: calc(100vh - 225px);
+        overflow-y: auto;
+    }
+
+    .setting_form {
+        display: flex;
+        margin-bottom: 30px;
+
+        label {
+            width: 180px;
+            font-weight: 700;
+            padding-right: 40px;
+            text-transform: capitalize;
+        }
+
+        >div {
+            flex: 1;
+            display: grid;
+            gap: 20px;
+
+            >.images {
+                display: flex;
+                gap: 10px;
+
+                img {
+                    height: 60px;
+                }
+            }
+        }
+    }
+}

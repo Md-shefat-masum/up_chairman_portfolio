@@ -1,0 +1,10 @@
+table tbody td{
+    vertical-align: middle;
+}
+
+.show_details_table td:nth-child(1){
+    width: 120px;
+}
+.show_details_table td:nth-child(2){
+    width: 2px;
+}
